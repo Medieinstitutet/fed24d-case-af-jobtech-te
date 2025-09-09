@@ -9,6 +9,8 @@ export const ShowJobs = () => {
     useEffect(() => {
         fetchJobs().then(setJobs).catch((err) => setError(err.message));
     },[])
+
+
     return(
         <div>
             <h1>Lediga Jobb</h1>
