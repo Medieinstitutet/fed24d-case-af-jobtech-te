@@ -1,5 +1,5 @@
 import { ShowJobs } from "../components/showJobs"
-export const JobPage = () => {
+export const JobsPage = () => {
     
     return(
         <div>

@@ -1,8 +1,9 @@
-import "./App.css";
-import { JobPage } from "./pages/JobsPage";
-function App() {
+import { RouterProvider } from 'react-router';
+import { router } from './Router'
+
+const App = () => {
   return <>
-    <JobPage />
+    <RouterProvider router={router}></RouterProvider>
   </>;
 }
 
