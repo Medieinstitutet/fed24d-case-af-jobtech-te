@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router'
+
 export const PageLayout = () => {
   return (
     <>
@@ -5,7 +7,7 @@ export const PageLayout = () => {
         <p>header content</p>
       </header>
       <main>
-        <p>main content</p>
+        <Outlet />
       </main>
       <footer>
         <p>footer content</p>
