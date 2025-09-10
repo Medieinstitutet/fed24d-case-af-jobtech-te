@@ -1,6 +1,7 @@
 import { RouterProvider } from 'react-router';
 import { router } from './Router'
 import { GlobalStyle } from './styles/GlobalStyle';
+
 const App = () => {
   return <>
     <GlobalStyle />
