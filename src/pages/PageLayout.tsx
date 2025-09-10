@@ -1,14 +1,13 @@
 import { Outlet } from 'react-router'
-import { FooterWrap, HeaderWrapper, MainWrap, PageWrap, Typography } from '../components/styled/LayoutWrappers'
+import { FooterWrap, MainWrap, PageWrap, Typography } from '../components/styled/LayoutWrappers'
+import { Header } from '../components/fixtures/Header'
 
 export const PageLayout = () => {
   return (
     <Typography>
       <PageWrap
       >
-        <HeaderWrapper>
-          <p>HeaderContent</p>
-        </HeaderWrapper>
+        <Header />
         <MainWrap>
           <Outlet />
         </MainWrap>
