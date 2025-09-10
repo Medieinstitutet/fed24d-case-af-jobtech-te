@@ -1,6 +1,6 @@
 import { Job } from "../models/Job";
 
-const API_URL = "https://jobsearch.api.jobtechdev.se/search?offset=0&limit=10" // catches first 10 jobs in the Api
+const API_URL = "https://jobsearch.api.jobtechdev.se/search?offset=1&limit=25" // catches first 25 jobs in the Api
 
 const JOB_DETAIL_URL = "https://jobsearch.api.jobtechdev.se/ad/"; // base URL for job details
 

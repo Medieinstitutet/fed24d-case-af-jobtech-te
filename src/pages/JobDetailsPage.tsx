@@ -24,7 +24,7 @@ export const JobDetailsPage = () => {
             <h1>{job.headline}</h1>
             <p>Arbetsgivare: {job.employer?.name}</p>
             <p>Yrkesområde: {job.occupation_field?.label}</p>
-            {/* Lägg till mer info om du vill */}
+            
         </div>
     );
 }
