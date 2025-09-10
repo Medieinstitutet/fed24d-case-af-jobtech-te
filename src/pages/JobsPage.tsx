@@ -7,7 +7,7 @@ export const JobsPage = () => {
 
     return(
         <div>
-              <SearchBar  value={search} onChange={setSearch} placeholder="Sök jobb..."/>
+              <SearchBar  value={search} onSearch={setSearch} placeholder="Sök jobb..."/>
               <ShowJobs search={search} />
         </div>
     )
