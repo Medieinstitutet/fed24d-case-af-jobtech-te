@@ -20,7 +20,7 @@ export const Header = () => {
               <DesktopNavLink to={"/"}>Hem</DesktopNavLink>
             </DesktopNavItem>
             <DesktopNavItem>
-              <DesktopNavLink to={"/jobs"} className={"digi-navigation-vertical-menu--secondary sc-digi-navigation-vertical-menu-item-h digi-navigation-vertical-menu-item__link--active sc-digi-navigation-vertical-menu-item "}>
+              <DesktopNavLink to={"/jobs"}>
                 Jobb
               </DesktopNavLink>
             </DesktopNavItem>
