@@ -1,0 +1,27 @@
+.searchbar-container {
+  position: relative;
+  width: 300px;
+}
+
+.SuggestionsList {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 300px;
+  z-index: 100;
+}
+
+.SuggestionsList li {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.SuggestionsList li:hover {
+  background: #f0f0f0;
+}

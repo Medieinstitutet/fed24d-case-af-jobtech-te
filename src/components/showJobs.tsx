@@ -10,28 +10,23 @@ interface ShowJobsProps {
 export const ShowJobs = ({ search }: ShowJobsProps) => {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const filteredJobs = jobs.filter(
-    (job) =>
-      job.headline &&
-      job.employer &&
-      job.occupation_field &&
-      (job.headline.toLowerCase().includes(search.toLowerCase()) ||
-        job.employer.name.toLowerCase().includes(search.toLowerCase()) ||
-        job.occupation_field.label.toLowerCase().includes(search.toLowerCase()))
-  );
 
   useEffect(() => {
-    fetchJobs()
+    if (!search) {
+      setJobs([]);
+      return;
+    }
+    fetchJobs(search)
       .then(setJobs)
       .catch((err) => setError(err.message));
-  }, []);
+  }, [search]);
 
   return (
     <div>
       <h1>Lediga Jobb</h1>
       {error && <p>{error}</p>}
       <ul>
-        {filteredJobs.map((job) => (
+        {jobs.map((job) => (
           <li key={job.id}>
             <h2>{job.headline}</h2>
             <p>{job.employer?.name}</p>
@@ -40,7 +35,6 @@ export const ShowJobs = ({ search }: ShowJobsProps) => {
           </li>
         ))}
       </ul>
-      <p>test</p>
     </div>
   );
 };
