@@ -32,6 +32,9 @@ export const EmployerName = styled.p  `
     font-size: 1.1rem;
     font-weight: bold;
 `
-export const OccupationField = styled.p  `
+export const JobsPageContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
     
 `

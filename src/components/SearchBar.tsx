@@ -39,6 +39,7 @@ export function SearchBar({ value, onSearch, placeholder }: SearchBarProps) {
     <SearchBarContainer>
       <SearchBarInputContainer>
         <DigiFormInput
+          className="SearchInput"
           afLabel={placeholder || "Sök"}
           afId="search-bar"
           afRequired={false}
