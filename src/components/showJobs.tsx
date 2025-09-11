@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { fetchJobs } from "../services/ApiFetch";
 import { Job } from "../models/Job";
-
+import { JobItem, JobsListContainer, JobHeadline, EmployerName } from "./styled/JobsPage/ShowJobsComponents";
 interface ShowJobsProps {
   search: string;
 }
@@ -22,19 +22,20 @@ export const ShowJobs = ({ search }: ShowJobsProps) => {
   }, [search]);
 
   return (
-    <div>
+    <>
       <h1>Lediga Jobb</h1>
       {error && <p>{error}</p>}
-      <ul>
+      <JobsListContainer>
         {jobs.map((job) => (
-          <li key={job.id}>
-            <h2>{job.headline}</h2>
-            <p>{job.employer?.name}</p>
+          <JobItem key={job.id}>
+            <Link to={`/jobs/${job.id}`}>
+              <JobHeadline>{job.headline}</JobHeadline>
+            </Link>
+            <EmployerName>{job.employer?.name}</EmployerName>
             <p>{job.occupation_field?.label}</p>
-            <Link to={`/jobs/${job.id}`}>Se annons</Link>
-          </li>
+          </JobItem>
         ))}
-      </ul>
-    </div>
+      </JobsListContainer>
+    </>
   );
 };
