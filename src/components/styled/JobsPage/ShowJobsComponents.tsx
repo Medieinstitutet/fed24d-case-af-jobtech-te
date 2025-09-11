@@ -4,13 +4,26 @@ export const JobsListContainer = styled.ul `
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  justify-content: center;
+  align-items: center;
 `
 
 export const JobItem = styled.li `
     height:125px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    background-color: #ececec;
+    padding-left: 8px;
+    width: 700px;
+    
 `
 
-export const JobHeadline = styled.a `
+export const JobHeadline = styled.p `
     font-size: 1.4rem;
     
 ` 

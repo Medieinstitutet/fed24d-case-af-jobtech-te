@@ -3,7 +3,7 @@ import type React from "react";
 import { fetchJobSuggestions } from "../services/ApiFetch";
 import { DigiFormInput, DigiButton } from "@digi/arbetsformedlingen-react";
 import type { TypeaheadItem } from "../models/Job";
-import {  SearchBarInputContainer, SuggestionsContainer, SuggestionItem } from "./styled/JobsPage/SearchBarComponents";
+import {  SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer } from "./styled/JobsPage/SearchBarComponents";
 
 interface SearchBarProps {
   value: string;
@@ -36,7 +36,7 @@ export function SearchBar({ value, onSearch, placeholder }: SearchBarProps) {
   };
 
   return (
-    <>
+    <SearchBarContainer>
       <SearchBarInputContainer>
         <DigiFormInput
           afLabel={placeholder || "Sök"}
@@ -79,6 +79,6 @@ export function SearchBar({ value, onSearch, placeholder }: SearchBarProps) {
           ))}
         </SuggestionsContainer>
       )}
-    </>
+    </SearchBarContainer>
   );
 }
