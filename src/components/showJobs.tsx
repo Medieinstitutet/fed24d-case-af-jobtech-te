@@ -23,9 +23,9 @@ export const ShowJobs = ({ search }: ShowJobsProps) => {
 
   return (
     <>
-      <h1>Lediga Jobb</h1>
       {error && <p>{error}</p>}
       <JobsListContainer>
+        <h1>Lediga Jobb</h1>
         {jobs.map((job) => (
           <JobItem key={job.id}>
             <Link to={`/jobs/${job.id}`}>
