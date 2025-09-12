@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { fetchJobs } from "../services/ApiFetch";
+import { fetchJobs } from "../services/jobService";
 import { Job } from "../models/Job";
 import { JobItem, JobsListContainer, JobHeadline, EmployerName } from "./styled/JobsPage/ShowJobsComponents";
 interface ShowJobsProps {
