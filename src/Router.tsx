@@ -5,6 +5,7 @@ import { JobsPage } from './pages/JobsPage';
 import { JobDetailsPage } from './pages/JobDetailsPage';
 import { ErrorElement } from './pages/ErrorElement';
 import { jobsLoader } from './loaders/jobsLoader';
+import { jobLoader } from './loaders/jobLoader';
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/jobs/:id",
+                loader: jobLoader,
                 element: <JobDetailsPage />,
             }
         ]
