@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type React from "react";
-import { fetchJobSuggestions } from "../services/ApiFetch";
+import { fetchJobSuggestions } from "../services/jobService";
 import { DigiFormInput, DigiButton } from "@digi/arbetsformedlingen-react";
 import type { TypeaheadItem } from "../models/Job";
-import {  SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer } from "./styled/JobsPage/SearchBarComponents";
+import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer } from "./styled/JobsPage/SearchBarComponents";
 
 interface SearchBarProps {
   value: string;
@@ -11,7 +11,7 @@ interface SearchBarProps {
   placeholder?: string;
 }
 //
-export function SearchBar({ value, onSearch, placeholder }: SearchBarProps) {
+export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
   const [inputValue, setInputValue] = useState(value);
   const [suggestions, setSuggestions] = useState<TypeaheadItem[]>([]);
 
