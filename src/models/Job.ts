@@ -14,10 +14,3 @@ export class Job {
         this.occupation_field = occupation_field;
     }
 }
-
-export interface TypeaheadItem {
-  value: string;
-  found_phase: string;
-  type: string;
-  occurrences: number;
-}

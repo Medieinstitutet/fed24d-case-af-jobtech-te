@@ -1,23 +1,10 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { fetchJobById } from "../services/jobService";
-import { type IJobAd } from "../models/JobAd";
+import { useLoaderData } from "react-router";
+import type { JobLoaderData } from '../loaders/jobLoader';
 
 export const JobDetailsPage = () => {
-  const { id } = useParams();
-  const [job, setJob] = useState<IJobAd | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const { job } = useLoaderData() as JobLoaderData
 
-  useEffect(() => {
-    if (id) {
-      fetchJobById(id)
-        .then(setJob)
-        .catch((err) => setError(err.message));
-    }
-  }, [id]);
 
-  if (error) return <p>{error}</p>;
-  if (!job) return <p>Laddar...</p>;
 
   return (
     <div>
@@ -32,20 +19,20 @@ export const JobDetailsPage = () => {
         Publicerad:{" "}
         {job.publication_date
           ? new Date(job.publication_date).toLocaleDateString("sv-SE", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
           : ""}
       </p>
       <p>
         Senast publicerad:{" "}
         {job.last_publication_date
           ? new Date(job.last_publication_date).toLocaleDateString("sv-SE", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
           : ""}
       </p>
 
@@ -57,14 +44,14 @@ export const JobDetailsPage = () => {
           Sista ansökningsdag:{" "}
           {job.application_deadline
             ? new Date(job.application_deadline).toLocaleDateString("sv-SE", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
             : ""}
         </p>
         <a href={job.webpage_url ?? undefined} target="_blank" rel="noopener noreferrer">
-            Besök jobbannons
+          Besök jobbannons
         </a>
       </div>
     </div>
