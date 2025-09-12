@@ -16,7 +16,7 @@ import {
   JobDetailsHeaderContainers,
   JobDetailsBottomContainer,
 } from "../components/styled/JobDetailsPageStyle";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router";
 import { type JobLoaderData } from "../loaders/jobLoader";
 export const JobDetailsPage = () => {
   const { job } = useLoaderData() as JobLoaderData
@@ -33,10 +33,10 @@ export const JobDetailsPage = () => {
             Publicerad:{" "}
             {job.publication_date
               ? new Date(job.publication_date).toLocaleDateString("sv-SE", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
               : ""}
           </JobPublicationDate>
           <JobEmployerName>Arbetsgivare: {job.employer?.name}</JobEmployerName>
