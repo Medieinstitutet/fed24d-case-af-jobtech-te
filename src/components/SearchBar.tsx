@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type React from "react";
-import type { Suggestion } from '../models/apiResponse';
+import type { Suggestion } from '../models/ApiResponse';
 import { fetchJobSuggestions } from "../services/jobService";
 import { DigiFormInput, DigiButton } from "@digi/arbetsformedlingen-react";
 import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer } from "./styled/JobsPage/SearchBarComponents";

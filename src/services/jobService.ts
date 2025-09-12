@@ -1,5 +1,5 @@
 // /src/services/jobService.ts
-import type { JobSearchResponse, JobSearchResult, SearchSuggestionResponse, SearchSuggestionResult } from '../models/apiResponse';
+import type { JobSearchResponse, JobSearchResult, SearchSuggestionResponse, SearchSuggestionResult } from '../models/ApiResponse';
 import type { IJobAd } from '../models/IJobAd';
 import { fetchData } from './serviceBase';
 

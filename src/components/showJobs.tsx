@@ -3,13 +3,16 @@ import { Link } from "react-router";
 import { fetchJobs } from "../services/jobService";
 import { JobItem, JobsListContainer, JobHeadline, EmployerName } from "./styled/JobsPage/ShowJobsComponents";
 import type { IJobAd } from '../models/IJobAd';
+
 interface ShowJobsProps {
   search: string;
+  initialJobs?: IJobAd[];
+  initialTotal?: number;
 }
 
-export const ShowJobs = ({ search }: ShowJobsProps) => {
-  const [jobs, setJobs] = useState<IJobAd[]>([]);
-  const [adTotal, setAdTotal] = useState<number>(0);
+export const ShowJobs = ({ search, initialJobs, initialTotal }: ShowJobsProps) => {
+  const [jobs, setJobs] = useState<IJobAd[]>(initialJobs ?? []);
+  const [adTotal, setAdTotal] = useState<number>(initialTotal ?? 0);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -18,7 +21,6 @@ export const ShowJobs = ({ search }: ShowJobsProps) => {
       setAdTotal(0);
       return;
     }
-    fetchJobs(search, 0, 15)
     fetchJobs(search, 0, 15)
       .then((result) => {
         setJobs(result.jobs);
