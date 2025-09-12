@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { fetchJobById } from "../services/ApiFetch";
+import { fetchJobById } from "../services/jobService";
 import { type IJobAd } from "../models/JobAd";
 
 export const JobDetailsPage = () => {
