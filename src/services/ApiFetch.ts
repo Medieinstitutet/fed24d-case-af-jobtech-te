@@ -1,5 +1,5 @@
 import { Job, type TypeaheadItem } from "../models/Job";
-
+import { type IJobAd } from "../models/JobAd";
 
 const JOB_DETAIL_URL = "https://jobsearch.api.jobtechdev.se/ad/"; // base URL for job details
 
@@ -17,14 +17,14 @@ export async function fetchJobs(search: string): Promise<Job[]> {
 }
 
 
-export async function fetchJobById(id: string): Promise<Job> {
+export async function fetchJobById(id: string): Promise<IJobAd> {
     const response = await fetch(`${JOB_DETAIL_URL}${id}`);
     if (!response.ok) {
         throw new Error("Något gick fel vid hämtning av jobbdetaljer");
     }
     const data = await response.json();
-    
-    return data as Job;
+
+    return data as IJobAd;
 }
 
 export async function fetchJobSuggestions(query: string): Promise<TypeaheadItem[]> {
