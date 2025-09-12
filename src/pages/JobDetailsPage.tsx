@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { fetchJobById } from "../services/ApiFetch";
+import { fetchJobById } from "../services/jobService";
 import { Job } from "../models/Job";
 
 export const JobDetailsPage = () => {
@@ -24,7 +24,7 @@ export const JobDetailsPage = () => {
             <h1>{job.headline}</h1>
             <p>Arbetsgivare: {job.employer?.name}</p>
             <p>Yrkesområde: {job.occupation_field?.label}</p>
-            
+
         </div>
     );
 }
