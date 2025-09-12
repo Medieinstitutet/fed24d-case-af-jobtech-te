@@ -1,5 +1,6 @@
 // /src/services/jobService.ts
-import { Job, type TypeaheadItem } from "../models/Job";
+import type { JobSearchResponse, JobSearchResult, SearchSuggestionResponse, SearchSuggestionResult } from '../models/ApiResponse';
+import type { IJobAd } from '../models/IJobAd';
 import { fetchData } from './serviceBase';
 
 const baseUrl = "https://jobsearch.api.jobtechdev.se/";
@@ -9,14 +10,17 @@ const baseUrl = "https://jobsearch.api.jobtechdev.se/";
  * - supports query, offset and limit
  * - returns an array of Job objects
  */
-export async function fetchJobs (query: string, offset: number, limit: number): Promise<Job[]> {
+export async function fetchJobs (query: string, offset: number, limit: number): Promise<JobSearchResult> {
   const apiUrl = `${baseUrl}/search?q=${encodeURIComponent(query)}&offset=${offset}&limit=${limit}`;
-  const errorMsg = "Något gick fel vid hämtning av jobb";
 
-  const data = await fetchData<{ hits: Job[] }>(apiUrl, errorMsg);
+  const data = await fetchData<JobSearchResponse>(apiUrl, "Något gick fel vid hämtning av jobb");
 
   console.log("fetchJobs full API-response:", "query:", query, "offset:", offset, "limit:", limit, "data:", data);
-  return data.hits;
+
+  return {
+    adTotal: data.total?.value ?? 0,
+    jobs: data.hits,
+  };
 }
 
 
@@ -24,11 +28,10 @@ export async function fetchJobs (query: string, offset: number, limit: number): 
  * Get a single job by its ID
  * - returns a Job object
  */
-export async function fetchJobById (id: string): Promise<Job> {
+export async function fetchJobById (id: string): Promise<IJobAd> {
   const apiUrl = `${baseUrl}/ad/${id}`
-  const errorMsg = "Något gick fel vid hämtning av jobbdetaljer";
 
-  const data = await fetchData<Job>(apiUrl, errorMsg);
+  const data = await fetchData<IJobAd>(apiUrl, "Något gick fel vid hämtning av jobbdetaljer");
 
   console.log("fetchJobById full API-response:", "id:", id, "data:", data);
   return data;
@@ -38,12 +41,15 @@ export async function fetchJobById (id: string): Promise<Job> {
  * Get job suggestions (autocomplete)
  * - returns an array of TypeaheadItem
  */
-export async function fetchJobSuggestions (query: string): Promise<TypeaheadItem[]> {
+export async function fetchJobSuggestions (query: string): Promise<SearchSuggestionResult> {
   const apiUrl = `${baseUrl}/complete?q=${encodeURIComponent(query)}`;
-  const errorMsg = "Något gick fel vid hämtning av förslag";
-  const data = await fetchData<{ typeahead: TypeaheadItem[] }>(apiUrl, errorMsg);
 
-  console.log("fetchJobSuggestion full API-response:", data);
+  const data = await fetchData<SearchSuggestionResponse>(apiUrl)
 
-  return data.typeahead ?? [];
+  const suggestions = (data.typeahead ?? [])
+    .map(item => item.value || item.found_phrase || "")
+    .filter(suggestion => suggestion !== "");
+
+  console.log("fetchJobSuggestion full API-response:", suggestions);
+  return { suggestions };
 }

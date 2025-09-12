@@ -1,14 +1,20 @@
-import { ShowJobs } from "../components/showJobs"
-import { SearchBar } from "../components/SearchBar"
-import { useState } from "react"
-import { JobsPageContainer } from "../components/styled/JobsPage/ShowJobsComponents"
+// src/pages/JobsPage.tsx
+
+import { useLoaderData } from "react-router";
+import { useState } from "react";
+import type { JobsLoaderData } from "../loaders/jobsLoader";
+import { SearchBar } from "../components/SearchBar";
+import { ShowJobs } from "../components/showJobs";
+import { JobsPageContainer } from "../components/styled/JobsPage/ShowJobsComponents";
+
 export const JobsPage = () => {
-    const [search, setSearch] = useState("*");
+    const { query, jobs, adTotal } = useLoaderData() as JobsLoaderData;
+    const [search, setSearch] = useState(query);
 
     return (
         <JobsPageContainer>
             <SearchBar value={search} onSearch={setSearch} placeholder="Sök jobb..." />
-            <ShowJobs search={search} />
+            <ShowJobs search={search} initialJobs={jobs} initialTotal={adTotal} />
         </JobsPageContainer>
-    )
+    );
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type React from "react";
+import type { Suggestion } from '../models/ApiResponse';
 import { fetchJobSuggestions } from "../services/jobService";
 import { DigiFormInput, DigiButton } from "@digi/arbetsformedlingen-react";
-import type { TypeaheadItem } from "../models/Job";
 import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer } from "./styled/JobsPage/SearchBarComponents";
 
 interface SearchBarProps {
@@ -10,28 +10,30 @@ interface SearchBarProps {
   onSearch: (value: string) => void;
   placeholder?: string;
 }
-//
+
 export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
   const [inputValue, setInputValue] = useState(value);
-  const [suggestions, setSuggestions] = useState<TypeaheadItem[]>([]);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
 
   // Search with Keyboard Enter
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      onSearch(inputValue);
+      onSearch(inputValue.trim());
       setSuggestions([]);
     }
   };
+
   // click on suggestion
-  const handleSuggestionClick = (suggestion: TypeaheadItem) => {
-    setInputValue(suggestion.value);
+  const handleSuggestionClick = (suggestion: Suggestion) => {
+    setInputValue(suggestion);
     setSuggestions([]);
-    onSearch(suggestion.value);
+    onSearch(suggestion);
   };
+
   // Click on search Button
   const handleSearchClick = () => {
-    onSearch(inputValue);
+    onSearch(inputValue.trim());
     setSuggestions([]);
   };
 
@@ -44,15 +46,15 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
           afId="search-bar"
           afRequired={false}
           value={inputValue}
-          // update input value and fetch suggestions
           onInput={(e: React.SyntheticEvent) => {
             const target = e.target as EventTarget & { value?: string };
-            const val = target.value ?? "";
+            const val = (target.value ?? "").trimStart();
             setInputValue(val);
+
             // suggestions only if more than 2 characters
             if (val.length > 2) {
               fetchJobSuggestions(val)
-                .then((r) => setSuggestions(r))
+                .then(result => setSuggestions(result.suggestions))
                 .catch(() => setSuggestions([]));
             } else {
               setSuggestions([]);
@@ -63,7 +65,7 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
         <DigiButton
           afSize="large"
           afVariation="primary"
-          afFullWidth={true}
+          afFullWidth
           onClick={handleSearchClick}
           afAriaLabel="Sök"
         >
@@ -75,7 +77,7 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
         <SuggestionsContainer className="SuggestionsList">
           {suggestions.slice(0, 5).map((sugg, idx) => (
             <SuggestionItem key={idx} onClick={() => handleSuggestionClick(sugg)}>
-              {sugg.value} <span>{sugg.found_phase}</span>
+              {sugg}
             </SuggestionItem>
           ))}
         </SuggestionsContainer>
