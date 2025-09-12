@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { fetchJobs } from "../services/jobService";
 import { JobItem, JobsListContainer, JobHeadline, EmployerName } from "./styled/JobsPage/ShowJobsComponents";
 import type { IJobAd } from '../models/IJobAd';
+import { useJobs } from '../contexts/JobContext';
 
 interface ShowJobsProps {
   search: string;
@@ -14,6 +15,7 @@ export const ShowJobs = ({ search, initialJobs, initialTotal }: ShowJobsProps) =
   const [jobs, setJobs] = useState<IJobAd[]>(initialJobs ?? []);
   const [adTotal, setAdTotal] = useState<number>(initialTotal ?? 0);
   const [error, setError] = useState<string | null>(null);
+  const { state } = useJobs();
 
   useEffect(() => {
     if (!search) {
@@ -21,7 +23,7 @@ export const ShowJobs = ({ search, initialJobs, initialTotal }: ShowJobsProps) =
       setAdTotal(0);
       return;
     }
-    fetchJobs(search, 0, 15)
+    fetchJobs(search, state.offset, state.limit)
       .then((result) => {
         setJobs(result.jobs);
         setAdTotal(result.adTotal);
@@ -39,6 +41,7 @@ export const ShowJobs = ({ search, initialJobs, initialTotal }: ShowJobsProps) =
       {error && <p>{error}</p>}
       <JobsListContainer>
         <h1>Lediga Jobb</h1>
+        <p>Visar {state.limit} av {adTotal}</p>
         <p>Det finns {adTotal} annonser som matchar din sökning</p>
         {jobs.map((job) => (
           <JobItem key={job.id}>
