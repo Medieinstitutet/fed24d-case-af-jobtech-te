@@ -63,7 +63,7 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
         <DigiButton
           afSize="large"
           afVariation="primary"
-          afFullWidth={false}
+          afFullWidth={true}
           onClick={handleSearchClick}
           afAriaLabel="Sök"
         >
