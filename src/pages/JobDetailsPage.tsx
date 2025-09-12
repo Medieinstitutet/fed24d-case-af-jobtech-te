@@ -21,8 +21,6 @@ import { type JobLoaderData } from "../loaders/jobLoader";
 export const JobDetailsPage = () => {
   const { job } = useLoaderData() as JobLoaderData
 
-
-
   return (
     <JobDetailsContainer>
       <JobDetailsHeader>
