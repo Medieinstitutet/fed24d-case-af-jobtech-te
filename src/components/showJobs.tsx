@@ -16,7 +16,7 @@ export const ShowJobs = ({ search }: ShowJobsProps) => {
       setJobs([]);
       return;
     }
-    fetchJobs(search)
+    fetchJobs(search, 0, 15)
       .then(setJobs)
       .catch((err) => setError(err.message));
   }, [search]);

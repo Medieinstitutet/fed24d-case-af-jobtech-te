@@ -1,39 +1,39 @@
 import { Job, type TypeaheadItem } from "../models/Job";
 
+const baseUrl = "https://jobsearch.api.jobtechdev.se/";
 
-const JOB_DETAIL_URL = "https://jobsearch.api.jobtechdev.se/";
+export async function fetchJobs (query: string, offset: number, limit: number): Promise<Job[]> {
+  const apiUrl = `${baseUrl}/search?q=${encodeURIComponent(query)}&offset=${offset}&limit=${limit}`;
 
-
-
-export async function fetchJobs (search: string): Promise<Job[]> {
-  const API_URL = `https://jobsearch.api.jobtechdev.se/search?q=${encodeURIComponent(search)}&offset=1&limit=25`
-  const response = await fetch(API_URL);
+  const response = await fetch(apiUrl);
   if (!response.ok) {
     throw new Error("Något gick fel vid hämtning av jobb");
   }
   const data = await response.json();
-
+  console.log("fetchJobs full API-response:", "query:", query, "offset:", offset, "limit:", limit, "data:", data);
   return data.hits as Job[];
 }
 
-
 export async function fetchJobById (id: string): Promise<Job> {
-  const response = await fetch(`${JOB_DETAIL_URL}${id}`);
+  const apiUrl = `${baseUrl}/ad${id}`
+
+  const response = await fetch(apiUrl);
   if (!response.ok) {
     throw new Error("Något gick fel vid hämtning av jobbdetaljer");
   }
   const data = await response.json();
-
+  console.log("fetchJobById full API-response:", "id:", id, "data:", data);
   return data as Job;
 }
 
 export async function fetchJobSuggestions (query: string): Promise<TypeaheadItem[]> {
-  const url = `https://jobsearch.api.jobtechdev.se/complete?q=${encodeURIComponent(query)}`;
-  const response = await fetch(url);
+  const apiUrl = `${baseUrl}/complete?q=${encodeURIComponent(query)}`;
+
+  const response = await fetch(apiUrl);
   if (!response.ok) {
     throw new Error("Något gick fel vid hämtning av förslag");
   }
   const data = await response.json();
-  console.log("Full API response:", data); // Debug line
+  /*   console.log("fetchJobSuggestion full API-response:", data); */
   return data.typeahead || [];
 }

@@ -3,12 +3,12 @@ import { SearchBar } from "../components/SearchBar"
 import { useState } from "react"
 import { JobsPageContainer } from "../components/styled/JobsPage/ShowJobsComponents"
 export const JobsPage = () => {
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState("*");
 
-    return(
+    return (
         <JobsPageContainer>
-              <SearchBar  value={search} onSearch={setSearch} placeholder="Sök jobb..."/>
-              <ShowJobs search={search} />
+            <SearchBar value={search} onSearch={setSearch} placeholder="Sök jobb..." />
+            <ShowJobs search={search} />
         </JobsPageContainer>
     )
 }
