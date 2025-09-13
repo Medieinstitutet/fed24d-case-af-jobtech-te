@@ -9,13 +9,18 @@ export const JobsPage = () => {
   const { query, jobs, adTotal, limit, offset } = useLoaderData();
   const navigate = useNavigate();
 
-  const totalPages = Math.ceil(adTotal / limit);
+  // Change page by updating URL (triggers loader)
+  const API_MAX_OFFSET = 2000;
+  const maxOffset = API_MAX_OFFSET;
+  const maxPages = Math.ceil((maxOffset + 1) / limit);
+  const totalPages = Math.min(Math.ceil(adTotal / limit), maxPages);
   const currentPage = Math.floor(offset / limit) + 1;
 
-  // Change page by updating URL (triggers loader)
   const handlePageChange = (page: number) => {
-    const newOffset = (page - 1) * limit;
-    navigate(`/jobs?q=${encodeURIComponent(query)}&offset=${newOffset}&limit=${limit}`);
+    const newOffset = Math.min((page - 1) * limit, maxOffset);
+    navigate(
+      `/jobs?q=${encodeURIComponent(query)}&offset=${newOffset}&limit=${limit}`
+    );
   };
 
   // Change search by updating URL (triggers loader)
@@ -25,9 +30,17 @@ export const JobsPage = () => {
 
   return (
     <JobsPageContainer>
-      <SearchBar value={query} onSearch={handleSearch} placeholder="Sök jobb..." />
+      <SearchBar
+        value={query}
+        onSearch={handleSearch}
+        placeholder="Sök jobb..."
+      />
       <ShowJobs jobs={jobs} adTotal={adTotal} />
-      <Paginator totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
+      <Paginator
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </JobsPageContainer>
   );
 };
