@@ -7,13 +7,11 @@ type PaginatorProps = {
 };
 
 export const Paginator = ({ totalPages, currentPage, onPageChange }: PaginatorProps) => {
-  // Handler for page change (DigiNavigationPagination sends CustomEvent<number>)
+  // Handle page change event from DigiNavigationPagination
   const handlePageChange = (event: CustomEvent<number>) => {
     const page = event.detail;
     onPageChange(page);
   };
-
-
 
   return (
     <DigiNavigationPagination
