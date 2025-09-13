@@ -15,7 +15,7 @@ export const ShowJobs = ({ search, initialJobs, initialTotal }: ShowJobsProps) =
   const [jobs, setJobs] = useState<IJobAd[]>(initialJobs ?? []);
   const [adTotal, setAdTotal] = useState<number>(initialTotal ?? 0);
   const [error, setError] = useState<string | null>(null);
-  const { state } = useJobs();
+  const { state, dispatch } = useJobs();
 
   useEffect(() => {
     if (!search) {
@@ -28,13 +28,19 @@ export const ShowJobs = ({ search, initialJobs, initialTotal }: ShowJobsProps) =
         setJobs(result.jobs);
         setAdTotal(result.adTotal);
         setError(null);
+        dispatch({ type: "SET_JOBS", jobs: result.jobs, adTotal: result.adTotal });
       })
       .catch((err) => {
         setJobs([]);
         setAdTotal(0);
         setError(err?.message ?? "Kunde inte hämta jobb");
+        dispatch({ type: "SET_JOBS", jobs: [], adTotal: 0 });
+        // If we land on an empty page, reset to first page
+        if (state.offset > 0) {
+          dispatch({ type: "SET_OFFSET", offset: 0 });
+        }
       });
-  }, [search]);
+  }, [search, state.offset, state.limit, dispatch]);
 
   return (
     <>

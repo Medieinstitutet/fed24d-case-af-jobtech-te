@@ -30,17 +30,20 @@ export const initialJobState: JobState = {
  * // | { type: "SET_QUERY"; query: string }
  * // | { type: "SET_JOBS"; jobs: IJobAd[] }
  */
-export type JobAction = never;
+export type JobAction =
+  | { type: "SET_OFFSET"; offset: number }
+  | { type: "SET_JOBS"; jobs: IJobAd[]; adTotal: number }
 
 /**
  * Reducer – switch on action types once you add actions.
  */
-export function jobReducer (state: JobState, _action: JobAction): JobState {
-    // switch (_action.type) {
-    //   case "SET_QUERY":
-    //     return { ...state, query: _action.query };
-    //   default:
-    //     return state;
-    // }
-    return state;
+export function jobReducer(state: JobState, action: JobAction): JobState {
+  switch (action.type) {
+    case "SET_OFFSET":
+      return { ...state, offset: action.offset };
+    case "SET_JOBS":
+      return { ...state, jobs: action.jobs, adTotal: action.adTotal };
+    default:
+      return state;
+  }
 }
