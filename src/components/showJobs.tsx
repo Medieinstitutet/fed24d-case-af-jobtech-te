@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { JobItem, JobsListContainer, JobHeadline, EmployerName } from "./styled/JobsPage/ShowJobsComponents";
 import type { IJobAd } from '../models/IJobAd';
-
+import { MainWrap } from "./styled/LayoutWrappers";
 interface ShowJobsProps {
   jobs: IJobAd[];
   adTotal: number;

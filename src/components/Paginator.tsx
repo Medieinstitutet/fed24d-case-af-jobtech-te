@@ -19,6 +19,7 @@ export const Paginator = ({ totalPages, currentPage, onPageChange }: PaginatorPr
       afInitActivePage={currentPage}
       onAfOnPageChange={handlePageChange}
       afLimit={5}
+      className="custom-pagination"
     />
   );
 };
