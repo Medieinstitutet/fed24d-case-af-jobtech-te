@@ -1,57 +1,63 @@
-
 import {
   JobLogo,
-  JobHeadLine,
-  JobEmployerName,
-  JobOccupationField,
-  JobWorkPlaceRegion,
-  JobEmploymentType,
-  JobSalaryType,
-  JobPublicationDate,
   JobDescription,
-  JobApplicationDeadline,
   JobWebpageUrl,
-  JobDetailsContainer,
   JobDetailsHeader,
   JobDetailsHeaderContainers,
   JobDetailsBottomContainer,
+  HeaderTitle,
+  AdDate,
+  AdText,
 } from "../components/styled/JobDetailsPageStyle";
 import { useLoaderData } from "react-router";
 import { type JobLoaderData } from "../loaders/jobLoader";
+import { MainWrap } from "../components/styled/LayoutWrappers";
 export const JobDetailsPage = () => {
-  const { job } = useLoaderData() as JobLoaderData
+  const { job } = useLoaderData() as JobLoaderData;
 
   return (
-    <JobDetailsContainer>
+    <MainWrap>
       <JobDetailsHeader>
         <JobDetailsHeaderContainers>
-          <JobLogo src={job.logo_url} alt={job.employer?.name ?? undefined} />
-          <JobHeadLine>{job.headline}</JobHeadLine>
-          <JobPublicationDate>
+          {job.logo_url && (
+            <JobLogo src={job.logo_url} alt={job.employer?.name ?? undefined} /> // If there is no logo just dont render it
+          )}
+          <HeaderTitle>{job.headline}</HeaderTitle>
+          <AdDate>
             Publicerad:{" "}
             {job.publication_date
               ? new Date(job.publication_date).toLocaleDateString("sv-SE", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
               : ""}
-          </JobPublicationDate>
-          <JobEmployerName>Arbetsgivare: {job.employer?.name}</JobEmployerName>
-          <JobOccupationField>
-            Yrkesområde: {job.occupation_field?.label}
-          </JobOccupationField>
+          </AdDate>
+          <AdText>Arbetsgivare: {job.employer?.name}</AdText>
+          <AdText>Yrkesområde: {job.occupation_field?.label}</AdText>
         </JobDetailsHeaderContainers>
         <JobDetailsHeaderContainers>
-          <JobWorkPlaceRegion>
-            Arbetsort: {job.workplace_address?.region}
-          </JobWorkPlaceRegion>
-          <JobEmploymentType>
-            Anställningsform: {job.employment_type?.label}
-          </JobEmploymentType>
-          <JobSalaryType>
-            Lön: {job.salary_type && job.salary_type.label}
-          </JobSalaryType>
+          <AdText>Arbetsort: {job.workplace_address?.region}</AdText>
+          <AdText>Anställningsform: {job.employment_type?.label}</AdText>
+          <AdText>Lön: {job.salary_type && job.salary_type.label}</AdText>
+          <AdDate>
+            {" "}
+            Sista ansökningsdag:{" "}
+            {job.application_deadline
+              ? new Date(job.application_deadline).toLocaleDateString("sv-SE", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              : ""}
+          </AdDate>
+          <JobWebpageUrl
+            href={job.webpage_url ?? undefined}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Besök jobbannons
+          </JobWebpageUrl>
         </JobDetailsHeaderContainers>
       </JobDetailsHeader>
       <JobDetailsBottomContainer>
@@ -60,25 +66,7 @@ export const JobDetailsPage = () => {
             __html: job.description?.text_formatted || "",
           }}
         />
-        <JobApplicationDeadline>
-          {" "}
-          Sista ansökningsdag:{" "}
-          {job.application_deadline
-            ? new Date(job.application_deadline).toLocaleDateString("sv-SE", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-            : ""}
-        </JobApplicationDeadline>
-        <JobWebpageUrl
-          href={job.webpage_url ?? undefined}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Besök jobbannons
-        </JobWebpageUrl>
       </JobDetailsBottomContainer>
-    </JobDetailsContainer>
+    </MainWrap>
   );
 };

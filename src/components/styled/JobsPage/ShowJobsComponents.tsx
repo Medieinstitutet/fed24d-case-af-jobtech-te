@@ -10,6 +10,11 @@ export const JobsListContainer = styled.ul `
   height: auto;
   justify-content: center;
   align-items: center;
+
+      @media (max-width: 480px) {
+      width: 350px;
+      gap: 10px;
+    }
   
 `
 
@@ -21,7 +26,20 @@ export const JobItem = styled.li `
     background-color: #ececec;
     padding-left: 8px;
     width: 700px;
-    
+    /* Small Phones (up to 480px) */
+    @media (max-width: 480px) {
+      width: 350px;
+      height: auto;
+      display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    /* Normal Phones (481px to 768px) */
+    @media (min-width: 481px) and (max-width: 768px) {
+
+    }
+    /* Tablets and Small Laptops (769px to 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {}
 `
 
 export const JobHeadline = styled.p `
@@ -38,6 +56,7 @@ export const JobsPageContainer = styled.div `
     flex-direction: column;
     align-items: center;   
     gap: 16px; 
+    
    
 `
 export const PaginationContainer = styled.div `
@@ -50,3 +69,4 @@ export const TotalJobsText = styled.p `
     font-size: 1.2rem;
     margin-bottom:5px;
 `
+

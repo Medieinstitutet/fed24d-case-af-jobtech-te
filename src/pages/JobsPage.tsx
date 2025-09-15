@@ -1,8 +1,9 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { SearchBar } from "../components/SearchBar";
 import { ShowJobs } from "../components/showJobs";
-import { JobsPageContainer } from "../components/styled/JobsPage/ShowJobsComponents";
+
 import { Paginator } from "../components/Paginator";
+import { MainWrap } from "../components/styled/LayoutWrappers";
 
 export const JobsPage = () => {
   // Get loader data (from jobsLoader)
@@ -29,7 +30,7 @@ export const JobsPage = () => {
   };
 
   return (
-    <JobsPageContainer>
+    <MainWrap>
       <SearchBar
         value={query}
         onSearch={handleSearch}
@@ -43,6 +44,6 @@ export const JobsPage = () => {
         jobsPerPage={limit}
         adTotal={adTotal}
       />
-    </JobsPageContainer>
+    </MainWrap>
   );
 };
