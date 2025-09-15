@@ -1,12 +1,9 @@
 import { Link } from "react-router";
-import {
-  JobItem,
-  JobsListContainer,
-  JobHeadline,
-  EmployerName,
-} from "./styled/JobsPage/ShowJobsComponents";
-import type { IJobAd } from "../models/IJobAd";
-import { MainWrap } from "./styled/LayoutWrappers";
+
+import { JobItem, JobHeadline, EmployerName } from "./styled/JobsPage/ShowJobsComponents";
+import type { IJobAd } from '../models/IJobAd';
+import { BaseBlockWrap } from './styled/Globals/Wrappers';
+
 interface ShowJobsProps {
   jobs: IJobAd[];
   adTotal: number;
@@ -14,10 +11,10 @@ interface ShowJobsProps {
 
 export const ShowJobs = ({ jobs, adTotal }: ShowJobsProps) => {
   return (
-    <JobsListContainer>
-      <h1>Lediga Jobb</h1>
-      <p>Det finns {adTotal} annonser som matchar din sökning</p>
-      {jobs.map((job) => (
+    <BaseBlockWrap>
+      <p>Det finns <strong>{adTotal} </strong>annonser som matchar din sökning</p>
+      {jobs.map(job => (
+
         <JobItem key={job.id}>
           <Link to={`/jobs/${job.id}`}>
             <JobHeadline>{job.headline}</JobHeadline>
@@ -26,6 +23,6 @@ export const ShowJobs = ({ jobs, adTotal }: ShowJobsProps) => {
           <p>{job.occupation_field?.label}</p>
         </JobItem>
       ))}
-    </JobsListContainer>
-  );
+    </BaseBlockWrap>
+  )
 };

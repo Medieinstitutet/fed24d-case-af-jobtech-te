@@ -3,7 +3,7 @@ import type React from "react";
 import type { Suggestion } from '../models/ApiResponse';
 import { fetchJobSuggestions } from "../services/jobService";
 import { DigiFormInput, DigiButton } from "@digi/arbetsformedlingen-react";
-import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer } from "./styled/JobsPage/SearchBarComponents";
+import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer, SearchInput, SuggestionsWrapper } from "./styled/JobsPage/SearchBarComponents";
 
 interface SearchBarProps {
   value: string;
@@ -40,47 +40,53 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
   return (
     <SearchBarContainer>
       <SearchBarInputContainer>
-        <DigiFormInput
-          className="SearchInput"
-          afLabel={placeholder || "Sök"}
-          afId="search-bar"
-          afRequired={false}
-          value={inputValue}
-          onInput={(e: React.SyntheticEvent) => {
-            const target = e.target as EventTarget & { value?: string };
-            const val = (target.value ?? "").trimStart();
-            setInputValue(val);
-            // suggestions only if more than 2 characters
-            if (val.length > 2) {
-              fetchJobSuggestions(val)
-                .then(result => setSuggestions(result.suggestions))
-                .catch(() => setSuggestions([]));
-            } else {
-              setSuggestions([]);
-            }
-          }}
-          onKeyDown={handleKeyDown}
-        />
+        <SearchInput>
+          <DigiFormInput
+            className="SearchInput"
+            afLabel={placeholder || "Sök"}
+            afId="search-bar"
+            afRequired={false}
+            afAutocomplete='false'
+            onInput={(e: React.SyntheticEvent) => {
+              const target = e.target as EventTarget & { value?: string };
+              const val = (target.value ?? "").trimStart();
+              setInputValue(val);
+              // suggestions only if more than 2 characters
+              if (val.length > 2) {
+                fetchJobSuggestions(val)
+                  .then(result => setSuggestions(result.suggestions))
+                  .catch(() => setSuggestions([]));
+              } else {
+                setSuggestions([]);
+              }
+            }}
+            onKeyDown={handleKeyDown}
+            afValue={inputValue}
+          />
+        </SearchInput>
         <DigiButton
           afSize="large"
           afVariation="primary"
           afFullWidth
           onClick={handleSearchClick}
           afAriaLabel="Sök"
+          afId='searchBtn'
         >
           Sök
         </DigiButton>
       </SearchBarInputContainer>
-
       {suggestions.length > 0 && (
-        <SuggestionsContainer className="SuggestionsList">
-          {suggestions.slice(0, 5).map((sugg, idx) => (
-            <SuggestionItem key={idx} onClick={() => handleSuggestionClick(sugg)}>
-              {sugg}
-            </SuggestionItem>
-          ))}
-        </SuggestionsContainer>
+        <SuggestionsWrapper>
+          <SuggestionsContainer className="SuggestionsList">
+            {suggestions.slice(0, 5).map((sugg, idx) => (
+              <SuggestionItem key={idx} onClick={() => handleSuggestionClick(sugg)}>
+                {sugg}
+              </SuggestionItem>
+            ))}
+          </SuggestionsContainer>
+        </SuggestionsWrapper>
       )}
+
     </SearchBarContainer>
-  );
-}
+  )
+};
