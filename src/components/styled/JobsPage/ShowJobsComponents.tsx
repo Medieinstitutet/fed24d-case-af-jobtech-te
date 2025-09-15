@@ -36,6 +36,7 @@ export const EmployerName = styled.p  `
 export const JobsPageContainer = styled.div `
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;   
+    gap: 16px; 
    
 `

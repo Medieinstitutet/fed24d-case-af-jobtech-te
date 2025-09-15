@@ -47,6 +47,7 @@ export const JobDescription = styled.div `
     gap: 10px;
     p{
         max-width: 800px;
+
     }
     ul{
         margin-bottom:0;
