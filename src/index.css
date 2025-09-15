@@ -10,17 +10,19 @@
 --clr--border-header: #efe8ef;
 --clr--border-footer:#f2edf2;
 
+--clr--bg-coml-1-100:hsl(171, 35%, 81%);
+
 --border-header:var(--digi--border-width--secondary) solid var(--clr--border-header);
 --border-footer:var(--digi--border-width--complementary-1) solid var(--clr--border-footer);
 --clr--bg-white:hsl(300, 20%, 98%);
 --clr-txt-dark:hsl(300, 19%, 20%);
---clr-txt-medium: yellow;
---clr-text-heading:hsl(206, 28%, 40% );
+--clr-txt-medium: hsl(300, 28%, 32%);
+--clr-text-heading:hsl(206, 28%, 35% );
 --clr-txt-light: #efe8ef;
 --clr--link:hsl(171, 93%, 27%);
 --clr--link-hover:hwb(170 1% 67%);
 --clr--ink-active:hsl(170, 93%, 17%);
-
+--digi--margin--h3-small:1.2rem;
 
 --digi--color--text--primary:var(--clr-txt-dark);
 --digi--color--text--secondary:var(--clr-txt-medium);
@@ -28,7 +30,7 @@
 --digi--color--text--link:var(--clr--link);
 --digi--color--background--input: var(--clr--bg-white);
 
-
+--digi--color--background--complementary-1:var(--clr--bg-coml-1-100);
 }
 
 
