@@ -7,9 +7,10 @@ export const JobsListContainer = styled.ul `
   display: flex;
   flex-direction: column;
   gap: 8px;
-  
+  height: auto;
   justify-content: center;
   align-items: center;
+  
 `
 
 export const JobItem = styled.li `
@@ -35,7 +36,7 @@ export const EmployerName = styled.p  `
 export const JobsPageContainer = styled.div `
     display: flex;
     flex-direction: column;
-    align-items: center;    
-    position: absolute;
-    top:80px;
+    align-items: center;   
+    gap: 16px; 
+   
 `

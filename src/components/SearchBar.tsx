@@ -50,7 +50,6 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
             const target = e.target as EventTarget & { value?: string };
             const val = (target.value ?? "").trimStart();
             setInputValue(val);
-
             // suggestions only if more than 2 characters
             if (val.length > 2) {
               fetchJobSuggestions(val)

@@ -20,7 +20,7 @@ export const JobDetailsHeader = styled.div `
     display: flex;
     flex-direction: row;
     gap: 200px;
-    background-color: #e9e9e9;
+    background-color: #a3a3c792;
     padding: 20px;
 `
 
@@ -30,6 +30,7 @@ export const JobDetailsHeaderContainers = styled.div `
     flex-direction: column;
     justify-content: end;
     height: 250px;
+    border-right: 2.5px solid black;
 `
 export const JobDetailsBottomContainer = styled.div `
     width: 1000px;
@@ -46,6 +47,7 @@ export const JobDescription = styled.div `
     gap: 10px;
     p{
         max-width: 800px;
+
     }
     ul{
         margin-bottom:0;
@@ -86,8 +88,17 @@ export const JobLastPublicationDate = styled.p `
 `
 
 export const JobApplicationDeadline = styled.p `
-
+width: 50%;
+margin-top: 30px;
+background-color: #a3a3c792;
+text-align: center;
+padding-top: 20px;
 `
 export const JobWebpageUrl = styled.a `
-
+width: 50%;
+background-color: #a3a3c792;
+text-align: center;
+padding-bottom: 20px;
+font-size: 1.2rem;
+padding-top: 20px;
 `

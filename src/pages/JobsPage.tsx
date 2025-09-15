@@ -1,40 +1,46 @@
-import { useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { SearchBar } from "../components/SearchBar";
 import { ShowJobs } from "../components/showJobs";
 import { JobsPageContainer } from "../components/styled/JobsPage/ShowJobsComponents";
-import { useJobs } from '../contexts/JobContext';
 import { Paginator } from "../components/Paginator";
 
-
 export const JobsPage = () => {
-    const { state, dispatch } = useJobs();
-    const [search, setSearch] = useState(state.query);
-    const totalPages = Math.ceil(state.adTotal / state.limit);
-    const currentPage = Math.floor(state.offset / state.limit) + 1;
+  // Get loader data (from jobsLoader)
+  const { query, jobs, adTotal, limit, offset } = useLoaderData();
+  const navigate = useNavigate();
 
-    const handlePageChange = (page: number) => {
-        if (
-            typeof page === "number" &&
-            !isNaN(page) &&
-            state.limit > 0 &&
-            totalPages > 0 &&
-            page >= 1 &&
-            page <= totalPages
-        ) {
-            // Calculate offset, but never exceed last available job index
-            const maxOffset = Math.floor((state.adTotal - 1) / state.limit) * state.limit;
-            const offset = Math.min((page - 1) * state.limit, maxOffset);
-            dispatch({ type: "SET_OFFSET", offset });
-        } else {
-            console.warn("Invalid page, limit, or totalPages for paginator:", { page, limit: state.limit, totalPages });
-        }
-    };
+  // Change page by updating URL (triggers loader)
+  const API_MAX_OFFSET = 2000;
+  const maxOffset = API_MAX_OFFSET;
+  const maxPages = Math.ceil((maxOffset + 1) / limit);
+  const totalPages = Math.min(Math.ceil(adTotal / limit), maxPages);
+  const currentPage = Math.floor(offset / limit) + 1;
 
-    return (
-        <JobsPageContainer>
-            <SearchBar value={search} onSearch={setSearch} placeholder="Sök jobb..." />
-            <ShowJobs search={search} initialJobs={state.jobs} initialTotal={state.adTotal} />
-            <Paginator totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
-        </JobsPageContainer>
+  const handlePageChange = (page: number) => {
+    const newOffset = Math.min((page - 1) * limit, maxOffset);
+    navigate(
+      `/jobs?q=${encodeURIComponent(query)}&offset=${newOffset}&limit=${limit}`
     );
-}
+  };
+
+  // Change search by updating URL (triggers loader)
+  const handleSearch = (search: string) => {
+    navigate(`/jobs?q=${encodeURIComponent(search)}&offset=0&limit=${limit}`);
+  };
+
+  return (
+    <JobsPageContainer>
+      <SearchBar
+        value={query}
+        onSearch={handleSearch}
+        placeholder="Sök jobb..."
+      />
+      <ShowJobs jobs={jobs} adTotal={adTotal} />
+      <Paginator
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
+    </JobsPageContainer>
+  );
+};
