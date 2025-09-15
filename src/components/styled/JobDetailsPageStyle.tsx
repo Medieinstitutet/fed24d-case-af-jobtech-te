@@ -1,104 +1,96 @@
 import styled from "styled-components";
 
-export const JobDetailsContainer = styled.div `
-display: flex;
-flex-direction: column;
-gap: 50px;
-width: 50%;
-justify-content: center;
-align-items: center;
-width: 100%;
-    p{
-        font-size: 1.2rem;
-        margin-bottom: 0;
-    }
+export const JobDetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
 
-`
+export const JobDetailsHeader = styled.div`
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
 
-export const JobDetailsHeader = styled.div `
-    width: 1200px;
-    display: flex;
-    flex-direction: row;
-    gap: 200px;
-    background-color: #a3a3c792;
-    padding: 20px;
-`
+  background-color: #a3a3c792;
+  height: auto;
+`;
 
-export const JobDetailsHeaderContainers = styled.div `
+export const JobDetailsHeaderContainers = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border-left: 4.5px solid #78789292;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  justify-content: end;
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+
+  &:first-child {
     width: 100%;
+  }
+  &:last-child {
+    width: 50%;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    height: 250px;
-    border-right: 2.5px solid black;
-`
-export const JobDetailsBottomContainer = styled.div `
-    width: 1000px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    align-items: center;
- 
-`
-export const JobDescription = styled.div `
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    p{
-        max-width: 800px;
+    gap: 5px;
+  }
+`;
+export const JobDetailsBottomContainer = styled.div`
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 50px;
+`;
+export const JobDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  white-space: pre-wrap;
+  p {
+    max-width: 800px;
+    margin-bottom: 0;
+  }
+  ul {
+    margin-bottom: 0;
+  }
+`;
 
-    }
-    ul{
-        margin-bottom:0;
-    }
-`
-
-export const JobLogo = styled.img `
-
-  width: 250px;
-  height: 70px;
+export const JobLogo = styled.img`
+  width: 300px;
+  height: 100px;
   object-fit: contain;
-`
-export const JobHeadLine = styled.h2 `
+`;
+export const HeaderTitle = styled.h2`
+  color: green; // change color later
+`;
+export const AdText = styled.p`
+  color: blue; // change color later
+`;
+export const AdDate = styled.p`
+  color: red; // change color later
+`;
 
+export const JobApplicationDeadline = styled.p`
+  width: 100%;
+  margin-top: 30px;
 
-`
-export const JobEmployerName = styled.p `
-
-
-`
-export const JobOccupationField = styled.p `
-
-`
-export const JobWorkPlaceRegion = styled.p  `
-
-`
-export const JobEmploymentType = styled.p `
-
-`
-export const JobSalaryType = styled.p `
-
-`
-export const JobPublicationDate = styled.p `
-
-`
-export const JobLastPublicationDate = styled.p `
-
-`
-
-export const JobApplicationDeadline = styled.p `
-width: 50%;
-margin-top: 30px;
-background-color: #a3a3c792;
-text-align: center;
-padding-top: 20px;
-`
-export const JobWebpageUrl = styled.a `
-width: 50%;
-background-color: #a3a3c792;
-text-align: center;
-padding-bottom: 20px;
-font-size: 1.2rem;
-padding-top: 20px;
-`
+  text-align: center;
+  margin: 0;
+`;
+export const JobWebpageUrl = styled.a`
+  font-size: 1.3rem;
+`;
