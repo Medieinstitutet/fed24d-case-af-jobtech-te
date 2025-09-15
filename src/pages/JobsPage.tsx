@@ -1,9 +1,11 @@
 import { useLoaderData, useNavigate } from "react-router";
 import { SearchBar } from "../components/SearchBar";
 import { ShowJobs } from "../components/showJobs";
+
 import { Paginator } from "../components/Paginator";
 import { HiddenPageTitle, PageSection } from '../components/styled/Globals/Pages';
 import { BaseBlockWrap } from '../components/styled/Globals/Wrappers';
+
 
 export const JobsPage = () => {
   const { query, jobs, adTotal, limit, offset } = useLoaderData();
@@ -29,6 +31,7 @@ export const JobsPage = () => {
   const end = Math.min(offset + (jobs?.length ?? 0), adTotal || 0);
 
   return (
+
     <PageSection>
       <HiddenPageTitle>Lediga jobb – Brandname</HiddenPageTitle>
 
@@ -61,5 +64,6 @@ export const JobsPage = () => {
         />
       </BaseBlockWrap>
     </PageSection>
+
   );
 };
