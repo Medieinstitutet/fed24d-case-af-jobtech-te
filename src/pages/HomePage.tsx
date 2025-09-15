@@ -1,8 +1,10 @@
+import { PageSection, PageTitle } from '../components/styled/Globals/Pages'
+
 export const HomePage = () => {
 
     return (
-        <>
-            <h1>Home Page</h1>
-        </>
+        <PageSection>
+            <PageTitle> Home Page</PageTitle>
+        </PageSection>
     )
 }
