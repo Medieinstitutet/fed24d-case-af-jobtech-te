@@ -12,7 +12,7 @@
 
 --border-header:var(--digi--border-width--secondary) solid var(--clr--border-header);
 --border-footer:var(--digi--border-width--complementary-1) solid var(--clr--border-footer);
-
+--clr--bg-white:hsl(300, 20%, 98%);
 --clr-txt-dark:hsl(300, 19%, 20%);
 --clr-txt-medium: yellow;
 --clr-text-heading:hsl(206, 28%, 40% );
@@ -26,6 +26,8 @@
 --digi--color--text--secondary:var(--clr-txt-medium);
 --digi--color--text--inverted:var(--clr-txt-light);
 --digi--color--text--link:var(--clr--link);
+--digi--color--background--input: var(--clr--bg-white);
+
 
 }
 
