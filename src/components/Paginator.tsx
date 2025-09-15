@@ -25,7 +25,7 @@ export const Paginator = ({
 
   return (
     <PaginationContainer>
-      <TotalJobsText>Visar {shownJobs} jobb av {adTotal}</TotalJobsText>
+      <TotalJobsText>Visar <strong>{shownJobs}</strong> jobb av <strong>{adTotal}</strong></TotalJobsText>
       <DigiNavigationPagination
         afTotalPages={totalPages}
         afInitActivePage={currentPage}

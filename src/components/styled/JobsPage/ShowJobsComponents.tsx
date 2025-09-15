@@ -48,4 +48,5 @@ export const PaginationContainer = styled.div `
 `
 export const TotalJobsText = styled.p `
     font-size: 1.2rem;
+    margin-bottom:5px;
 `
