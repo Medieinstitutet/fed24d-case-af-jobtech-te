@@ -1,2 +1,38 @@
 @import '@digi/arbetsformedlingen/dist/digi-arbetsformedlingen/digi-arbetsformedlingen.css';
 @import '@digi/arbetsformedlingen/dist/digi-arbetsformedlingen/fonts/src/fonts.css';
+
+
+:root{
+
+--clr--bg-header: #f7f3f7;
+--clr--bg-footer:#2e1f2e;
+--clr--page-bg:hsl(300, 20%, 97%);
+--clr--border-header: #efe8ef;
+--clr--border-footer:#f2edf2;
+
+--border-header:var(--digi--border-width--secondary) solid var(--clr--border-header);
+--border-footer:var(--digi--border-width--complementary-1) solid var(--clr--border-footer);
+
+--clr-txt-dark:hsl(300, 19%, 20%);
+--clr-txt-medium: yellow;
+--clr-text-heading:hsl(206, 28%, 40% );
+--clr-txt-light: #efe8ef;
+--clr--link:hsl(171, 93%, 27%);
+--clr--link-hover:hwb(170 1% 67%);
+--clr--ink-active:hsl(170, 93%, 17%);
+
+
+--digi--color--text--primary:var(--clr-txt-dark);
+--digi--color--text--secondary:var(--clr-txt-medium);
+--digi--color--text--inverted:var(--clr-txt-light);
+--digi--color--text--link:var(--clr--link);
+
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    color:var(--clr-text-heading);
+}
+
+
+
