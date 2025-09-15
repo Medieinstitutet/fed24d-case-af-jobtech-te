@@ -40,3 +40,12 @@ export const JobsPageContainer = styled.div `
     gap: 16px; 
    
 `
+export const PaginationContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`
+export const TotalJobsText = styled.p `
+    font-size: 1.2rem;
+`

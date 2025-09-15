@@ -5,13 +5,16 @@ import { MainWrap } from "./styled/LayoutWrappers";
 interface ShowJobsProps {
   jobs: IJobAd[];
   adTotal: number;
+
 }
 
-export const ShowJobs = ({ jobs, adTotal }: ShowJobsProps) => (
-  <JobsListContainer>
-    <h1>Lediga Jobb</h1>
-    <p>Visar {jobs.length} av {adTotal}</p>
-    <p>Det finns {adTotal} annonser som matchar din sökning</p>
+export const ShowJobs = ({ jobs, adTotal }: ShowJobsProps) => {
+ 
+
+  return (
+    <JobsListContainer>
+      <h1>Lediga Jobb</h1>
+      <p>Det finns {adTotal} annonser som matchar din sökning</p>
     {jobs.map(job => (
       <JobItem key={job.id}>
         <Link to={`/jobs/${job.id}`}>
@@ -22,4 +25,5 @@ export const ShowJobs = ({ jobs, adTotal }: ShowJobsProps) => (
       </JobItem>
     ))}
   </JobsListContainer>
-);
+)
+};
