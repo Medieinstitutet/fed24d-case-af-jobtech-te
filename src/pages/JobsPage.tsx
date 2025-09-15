@@ -35,11 +35,13 @@ export const JobsPage = () => {
         onSearch={handleSearch}
         placeholder="Sök jobb..."
       />
-      <ShowJobs jobs={jobs} adTotal={adTotal} />
+      <ShowJobs jobs={jobs} adTotal={adTotal}  />
       <Paginator
         totalPages={totalPages}
         currentPage={currentPage}
         onPageChange={handlePageChange}
+        jobsPerPage={limit}
+        adTotal={adTotal}
       />
     </JobsPageContainer>
   );
