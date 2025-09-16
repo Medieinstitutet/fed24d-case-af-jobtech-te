@@ -52,7 +52,7 @@ export const JobDetailsHeaderContainers = styled.div`
   padding-bottom: 10px;
   padding-left: 20px;
   justify-content: end;
-
+  margin-top: 10px;
   p {
     font-size: 1.2rem;
     margin-bottom: 0;
