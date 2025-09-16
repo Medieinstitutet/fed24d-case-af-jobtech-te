@@ -10,7 +10,6 @@ interface SearchBarProps {
   onSearch: (value: string) => void;
   placeholder?: string;
 }
-
 export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
   const [inputValue, setInputValue] = useState(value);
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -18,12 +17,11 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
   // Search with Keyboard Enter
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      e.preventDefault();
+      e.preventDefault(); 
       onSearch(inputValue.trim());
       setSuggestions([]);
     }
   };
-
   // click on suggestion
   const handleSuggestionClick = (suggestion: Suggestion) => {
     setInputValue(suggestion);
@@ -34,7 +32,7 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
   // Click on search Button
   const handleSearchClick = () => {
     onSearch(inputValue.trim());
-    setSuggestions([]);
+    setSuggestions([]); // clear suggestions on search
   };
 
   return (
@@ -86,7 +84,6 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
           </SuggestionsContainer>
         </SuggestionsWrapper>
       )}
-
     </SearchBarContainer>
   )
 };
