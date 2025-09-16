@@ -24,7 +24,7 @@ export const JobDetailsPage = () => {
           )}
           <HeaderTitle>{job.headline}</HeaderTitle>
           <AdDate>
-            Publicerad:{" "}
+            <strong>Publicerad:</strong>{" "}
             {job.publication_date
               ? new Date(job.publication_date).toLocaleDateString("sv-SE", {
                   year: "numeric",
@@ -33,16 +33,16 @@ export const JobDetailsPage = () => {
                 })
               : ""}
           </AdDate>
-          <AdText>Arbetsgivare: {job.employer?.name}</AdText>
-          <AdText>Yrkesområde: {job.occupation_field?.label}</AdText>
+          <AdText><strong>Arbetsgivare:</strong> {job.employer?.name}</AdText>
+          <AdText><strong>Yrkesområde:</strong> {job.occupation_field?.label}</AdText>
         </JobDetailsHeaderContainers>
         <JobDetailsHeaderContainers>
-          <AdText>Arbetsort: {job.workplace_address?.region}</AdText>
-          <AdText>Anställningsform: {job.employment_type?.label}</AdText>
-          <AdText>Lön: {job.salary_type && job.salary_type.label}</AdText>
+          <AdText><strong>Arbetsort:</strong> {job.workplace_address?.region}</AdText>
+          <AdText><strong>Anställningsform: </strong> {job.employment_type?.label}</AdText>
+          <AdText><strong>Lön:</strong> {job.salary_type && job.salary_type.label}</AdText>
           <AdDate>
             {" "}
-            Sista ansökningsdag:{" "}
+            <strong>Sista ansökningsdag:</strong>{" "}
             {job.application_deadline
               ? new Date(job.application_deadline).toLocaleDateString("sv-SE", {
                   year: "numeric",
