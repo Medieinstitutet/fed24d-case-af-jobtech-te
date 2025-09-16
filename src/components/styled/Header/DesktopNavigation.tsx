@@ -100,4 +100,12 @@ export const DesktopLink = styled(Link)`
         text-decoration: none;
   } 
 
+      
+    @media (max-width: 480px) {
+      img{
+        width: 200px;
+        scale: 1.3;
+      }
+    }
+
 `;
