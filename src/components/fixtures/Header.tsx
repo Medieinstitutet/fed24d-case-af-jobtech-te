@@ -12,7 +12,7 @@ export const Header = () => {
     <HeaderWrapper>
       <HeaderContent>
         <HeaderBrandTitle>
-          <DesktopLink to="/">BrandName</DesktopLink>
+          <DesktopLink to="/"> <img src="src/components/logo-blue.png" alt="Brand Logo" /></DesktopLink>
         </HeaderBrandTitle>
         <DesktopNav aria-label="Huvudnavigering">
           <DesktopNavList>

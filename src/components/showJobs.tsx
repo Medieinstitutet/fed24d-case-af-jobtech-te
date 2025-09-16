@@ -1,40 +1,29 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { fetchJobs } from "../services/ApiFetch";
-import { Job } from "../models/Job";
+
+import { JobItem, JobHeadline, EmployerName, JobsListContainer } from "./styled/JobsPage/ShowJobsComponents";
+import type { IJobAd } from '../models/IJobAd';
+import { BaseBlockWrap } from './styled/Globals/Wrappers';
 
 interface ShowJobsProps {
-  search: string;
+  jobs: IJobAd[];
+  adTotal: number;
 }
 
-export const ShowJobs = ({ search }: ShowJobsProps) => {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!search) {
-      setJobs([]);
-      return;
-    }
-    fetchJobs(search)
-      .then(setJobs)
-      .catch((err) => setError(err.message));
-  }, [search]);
-
+export const ShowJobs = ({ jobs, adTotal }: ShowJobsProps) => {
   return (
-    <div>
-      <h1>Lediga Jobb</h1>
-      {error && <p>{error}</p>}
-      <ul>
-        {jobs.map((job) => (
-          <li key={job.id}>
-            <h2>{job.headline}</h2>
-            <p>{job.employer?.name}</p>
+    <BaseBlockWrap>
+      <p>Det finns <strong>{adTotal} </strong>annonser som matchar din sökning</p>
+      <JobsListContainer>
+        {jobs.map(job => (
+          <JobItem key={job.id}>
+            <Link to={`/jobs/${job.id}`}>
+              <JobHeadline>{job.headline}</JobHeadline>
+            </Link>
+            <EmployerName>{job.employer?.name}</EmployerName>
             <p>{job.occupation_field?.label}</p>
-            <Link to={`/jobs/${job.id}`}>Se annons</Link>
-          </li>
+          </JobItem>
         ))}
-      </ul>
-    </div>
-  );
+      </JobsListContainer>
+    </BaseBlockWrap>
+  )
 };

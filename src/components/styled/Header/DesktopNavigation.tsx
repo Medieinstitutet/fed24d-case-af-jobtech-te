@@ -33,7 +33,7 @@ export const DesktopNavLink = styled(NavLink)`
   padding:0 1rem;
   text-decoration: none;
   color: var(--digi--grayscale-900);
- font-size: var(--digi--navigation-vertical-menu-item--font-size);
+  font-size: var(--digi--navigation-vertical-menu-item--font-size);
 
   &:active{
     text-decoration: none;
@@ -99,5 +99,13 @@ export const DesktopLink = styled(Link)`
         color: var(--digi--grayscale-900);
         text-decoration: none;
   } 
+
+      
+    @media (max-width: 480px) {
+      img{
+        width: 200px;
+        scale: 1.3;
+      }
+    }
 
 `;
