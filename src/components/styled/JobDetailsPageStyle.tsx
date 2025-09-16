@@ -15,8 +15,31 @@ export const JobDetailsHeader = styled.div`
   display: flex;
   flex-direction: row;
 
-  background-color: #a3a3c792;
+  background-color: hsl(171, 35%, 81%);
   height: auto;
+  margin-top: 15px;
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: 10px;
+    gap: 20px;
+  }
+  /* Normal Phones (481px to 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    width: auto;
+    margin: 15px;
+  }
+  /* Tablets and Small Laptops (769px to 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 900px;
+  }
+  /* Tablets and Small Laptops (769px to 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      width: auto;
+      margin: 15px;
+    }
+  
 `;
 
 export const JobDetailsHeaderContainers = styled.div`
@@ -24,7 +47,8 @@ export const JobDetailsHeaderContainers = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  border-left: 4.5px solid #78789292;
+  border-left: 4.5px solid
+    hsl(168.8888888888889, 14.754098360655732%, 64.11764705882352%);
   padding-bottom: 10px;
   padding-left: 20px;
   justify-content: end;
@@ -44,7 +68,25 @@ export const JobDetailsHeaderContainers = styled.div`
     width: 50%;
     display: flex;
     gap: 5px;
+    padding-top: 20px;
   }
+  @media (max-width: 480px) {
+    border-left: none;
+    border-bottom: 4.5px solid
+      hsl(168.8888888888889, 14.754098360655732%, 64.11764705882352%);
+    width: 100%;
+
+    padding-left: 10px;
+    padding-top: 10px;
+    &:first-child {
+      width: 100%;
+    }
+    &:last-child {
+      width: 100%;
+      padding-top: 0;
+    }
+  }
+
 `;
 export const JobDetailsBottomContainer = styled.div`
   width: 1000px;
@@ -54,6 +96,18 @@ export const JobDetailsBottomContainer = styled.div`
   height: 100%;
   align-items: center;
   margin-bottom: 50px;
+  @media (max-width: 480px) {
+    width: auto;
+    margin: 10px;
+  }
+  @media (min-width: 481px) and (max-width: 768px) {
+    width: auto;
+    margin: 15px;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+      width: auto;
+      margin: 15px;
+    }
 `;
 export const JobDescription = styled.div`
   display: flex;
@@ -66,6 +120,7 @@ export const JobDescription = styled.div`
   }
   ul {
     margin-bottom: 0;
+    padding-left: 20px;
   }
 `;
 
@@ -74,15 +129,9 @@ export const JobLogo = styled.img`
   height: 100px;
   object-fit: contain;
 `;
-export const HeaderTitle = styled.h2`
-  color: green; // change color later
-`;
-export const AdText = styled.p`
-  color: blue; // change color later
-`;
-export const AdDate = styled.p`
-  color: red; // change color later
-`;
+export const HeaderTitle = styled.h2``;
+export const AdText = styled.p``;
+export const AdDate = styled.p``;
 
 export const JobApplicationDeadline = styled.p`
   width: 100%;
