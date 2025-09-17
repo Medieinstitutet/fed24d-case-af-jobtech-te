@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Job } from "../models/Job";
 import type { IJobAd } from "../models/IJobAd";
-import { fetchJobs } from "../services/jobService"; 
-import { Card, Title, List, ListItem } from "./styled/TopOccupationsStyle"
+import { fetchJobs } from "../services/jobService";
+import { Card, Title, List, ListItem } from "./styled/home/TopOccupationsStyle"
 
 type AnyJob = Job | IJobAd;
 
-function getOccupationLabel(j: AnyJob): string {
+function getOccupationLabel (j: AnyJob): string {
   const any = j as any;
   return (
     any?.occupation_field?.label ||
@@ -17,7 +17,7 @@ function getOccupationLabel(j: AnyJob): string {
   ).toString().trim();
 }
 
-function groupTopOccupations(jobs: AnyJob[]) {
+function groupTopOccupations (jobs: AnyJob[]) {
   const map = new Map<string, number>();
   for (const j of jobs) {
     const key = getOccupationLabel(j);
@@ -30,15 +30,15 @@ function groupTopOccupations(jobs: AnyJob[]) {
 }
 
 type Props = {
-  jobs?: AnyJob[]; 
+  jobs?: AnyJob[];
   data?: { name: string; count: number }[];
   title?: string;
-  query?: string;   
-  offset?: number;  
-  limit?: number;  
+  query?: string;
+  offset?: number;
+  limit?: number;
 };
 
-export default function TopOccupationsBar({
+export default function TopOccupationsBar ({
   jobs,
   data,
   title = "Topp 5 yrken just nu",
@@ -59,7 +59,7 @@ export default function TopOccupationsBar({
         setLoading(true);
         setErr(null);
 
-        
+
         const res1 = await fetchJobs(query, offset, limit);
         if (res1?.jobs?.length) {
           console.log("[TopOcc] fetchJobs OK:", res1.jobs.length);

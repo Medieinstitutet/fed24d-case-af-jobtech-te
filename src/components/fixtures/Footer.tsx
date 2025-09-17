@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { FooterOuter, FooterInner, Brand, FooterNav, Muted } from "../styled/footerStyle";
+import { FooterOuter, FooterInner, FooterNav, Muted } from "../styled/fixtures/footerStyle";
 import { FooterLogo } from './PageLogo';
 
 type Props = {

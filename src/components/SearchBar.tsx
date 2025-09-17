@@ -3,7 +3,7 @@ import type React from "react";
 import type { Suggestion } from '../models/ApiResponse';
 import { fetchJobSuggestions } from "../services/jobService";
 import { DigiFormInput, DigiButton } from "@digi/arbetsformedlingen-react";
-import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer, SearchInput, SuggestionsWrapper } from "./styled/JobsPage/SearchBarComponents";
+import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer, SearchInput, SuggestionsWrapper } from "./styled/jobs/SearchBarComponents";
 
 interface SearchBarProps {
   value: string;
@@ -17,7 +17,7 @@ export function SearchBar ({ value, onSearch, placeholder }: SearchBarProps) {
   // Search with Keyboard Enter
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      e.preventDefault(); 
+      e.preventDefault();
       onSearch(inputValue.trim());
       setSuggestions([]);
     }

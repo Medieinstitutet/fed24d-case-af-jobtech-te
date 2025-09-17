@@ -3,7 +3,7 @@
 
 import logoDark from "../../assets/logotype/logo-dark.png";
 import logoLight from "../../assets/logotype/logo-light.png";
-import { FooterLogoLink, HeaderLogoLink, LogoImg } from '../styled/Header/PageLogo';
+import { FooterLogoLink, HeaderLogoLink, LogoImg } from '../styled/fixtures/PageLogo';
 
 export const HeaderLogo = () => {
   return (

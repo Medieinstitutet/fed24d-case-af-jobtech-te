@@ -23,7 +23,7 @@ import {
     MobileNavSidebarWrap,
     MobileNavMenuList,
     MobileNavMenuItem,
-} from "../styled/Header/MobileNavigation";
+} from "../styled/fixtures/MobileNavigation";
 
 /**
  * MobileNavigation

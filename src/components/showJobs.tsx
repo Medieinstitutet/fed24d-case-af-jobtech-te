@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 
-import { JobItem, JobHeadline, EmployerName, JobsListContainer } from "./styled/JobsPage/ShowJobsComponents";
+import { JobItem, JobHeadline, EmployerName, JobsListContainer } from "./styled/jobs/ShowJobsComponents";
 import type { IJobAd } from '../models/IJobAd';
-import { BaseBlockWrap } from './styled/Globals/Wrappers';
+import { BaseBlockWrap } from './styled/global/Wrappers';
 
 interface ShowJobsProps {
   jobs: IJobAd[];
