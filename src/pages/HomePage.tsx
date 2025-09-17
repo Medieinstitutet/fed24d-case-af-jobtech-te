@@ -1,7 +1,7 @@
 import { HiddenPageTitle, PageSection } from '../components/styled/global/Pages'
-import Hero from "../components/hero/Hero";
+import Hero from "../components/home/Hero"
 import heroImg from "../assets/hero-job.jpg";
-import TopOccupations from '../components/TopOccupationsBar'
+import TopOccupations from '../components/home/TopOccupationsBar'
 
 export const HomePage = () => {
 

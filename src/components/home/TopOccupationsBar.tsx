@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Job } from "../models/Job";
-import type { IJobAd } from "../models/IJobAd";
-import { fetchJobs } from "../services/jobService";
-import { Card, Title, List, ListItem } from "./styled/home/TopOccupationsStyle"
+import type { Job } from '../../models/Job';
+import type { IJobAd } from '../../models/IJobAd';
+import { fetchJobs } from '../../services/jobService';
+import { Card, List, ListItem, Title } from '../styled/home/TopOccupationsStyle';
+
 
 type AnyJob = Job | IJobAd;
 

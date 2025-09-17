@@ -1,8 +1,8 @@
 import { useLoaderData, useNavigate } from "react-router";
-import { SearchBar } from "../components/SearchBar";
-import { ShowJobs } from "../components/showJobs";
+import { SearchBar } from "../components/jobs/SearchBar";
+import { ShowJobs } from "../components/jobs/showJobs";
 
-import { Paginator } from "../components/Paginator";
+import { Paginator } from "../components/jobs/Paginator";
 import { HiddenPageTitle, PageSection } from '../components/styled/global/Pages';
 import { BaseBlockWrap } from '../components/styled/global/Wrappers';
 

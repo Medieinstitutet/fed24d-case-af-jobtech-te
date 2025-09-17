@@ -1,5 +1,5 @@
 import { DigiNavigationPagination } from "@digi/arbetsformedlingen-react";
-import { PaginationContainer, TotalJobsText } from "./styled/jobs/ShowJobsComponents";
+import { PaginationContainer, TotalJobsText } from "../styled/jobs/ShowJobsComponents";
 
 type PaginatorProps = {
   totalPages: number;

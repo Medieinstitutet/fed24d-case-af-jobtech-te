@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type React from "react";
-import type { Suggestion } from '../models/ApiResponse';
-import { fetchJobSuggestions } from "../services/jobService";
+import type { Suggestion } from '../../models/ApiResponse';
+import { fetchJobSuggestions } from "../../services/jobService";
 import { DigiFormInput, DigiButton } from "@digi/arbetsformedlingen-react";
-import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer, SearchInput, SuggestionsWrapper } from "./styled/jobs/SearchBarComponents";
+import { SearchBarInputContainer, SuggestionsContainer, SuggestionItem, SearchBarContainer, SearchInput, SuggestionsWrapper } from "../styled/jobs/SearchBarComponents";
 
 interface SearchBarProps {
   value: string;
