@@ -6,11 +6,16 @@ export const LogoImg = styled.img`
   height: auto;
   width: auto;
   max-height: 48px;
-  max-width: 200px;
+  max-width: 160px;
   object-fit: contain;
   transform-origin: left center;
   transition: transform 180ms ease-out;
+
   @media (prefers-reduced-motion: reduce) { transition: none; }
+
+    @media (min-width: 400px) {
+    max-width: 200px;
+  }
 `;
 
 export const HeaderLogoLink = styled(Link)`
