@@ -1,7 +1,8 @@
 import { MobileNavigation } from "./MobileNav";
 import { HeaderWrapper } from '../styled/LayoutWrappers';
-import { DesktopNav, DesktopNavLink, DesktopLink, DesktopNavList, DesktopNavItem } from '../styled/Header/DesktopNavigation';
+import { DesktopNav, DesktopNavLink, DesktopNavList, DesktopNavItem } from '../styled/Header/DesktopNavigation';
 import { HeaderBrandTitle, HeaderContent } from '../styled/Header/HeaderBaseStyle';
+import { HeaderLogo } from './PageLogo';
 
 /* ---- Header layout ---- */
 
@@ -12,7 +13,7 @@ export const Header = () => {
     <HeaderWrapper>
       <HeaderContent>
         <HeaderBrandTitle>
-          <DesktopLink to="/"> <img src="src/components/logo-blue.png" alt="Brand Logo" /></DesktopLink>
+          <HeaderLogo />
         </HeaderBrandTitle>
         <DesktopNav aria-label="Huvudnavigering">
           <DesktopNavList>

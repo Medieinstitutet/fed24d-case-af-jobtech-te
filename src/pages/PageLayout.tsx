@@ -6,6 +6,7 @@ import { jobReducer, initialJobState } from "../reducers/jobReducer";
 import type { JobsLoaderData } from "../loaders/jobsLoader";
 import { FooterWrap, MainWrap, PageWrap, Typography } from "../components/styled/LayoutWrappers";
 import { Header } from "../components/fixtures/Header";
+import { FooterLogo } from '../components/fixtures/PageLogo';
 
 export const PageLayout = () => {
   const data = useRouteLoaderData("jobs") as JobsLoaderData | undefined;
@@ -35,6 +36,7 @@ export const PageLayout = () => {
           </MainWrap>
           <FooterWrap>
             <p>FooterContent</p>
+            <FooterLogo />
           </FooterWrap>
         </PageWrap>
       </Typography>
