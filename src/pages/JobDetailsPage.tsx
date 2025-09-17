@@ -8,10 +8,10 @@ import {
   HeaderTitle,
   AdDate,
   AdText,
-} from "../components/styled/JobDetailsPageStyle";
+} from "../components/styled/jobdetails/JobDetailsPageStyle";
 import { useLoaderData } from "react-router";
 import { type JobLoaderData } from "../loaders/jobLoader";
-import { MainWrap } from "../components/styled/LayoutWrappers";
+import { MainWrap } from "../components/styled/global/LayoutWrappers";
 export const JobDetailsPage = () => {
   const { job } = useLoaderData() as JobLoaderData;
 
@@ -27,10 +27,10 @@ export const JobDetailsPage = () => {
             <strong>Publicerad:</strong>{" "}
             {job.publication_date
               ? new Date(job.publication_date).toLocaleDateString("sv-SE", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
               : ""}
           </AdDate>
           <AdText><strong>Arbetsgivare:</strong> {job.employer?.name}</AdText>
@@ -45,10 +45,10 @@ export const JobDetailsPage = () => {
             <strong>Sista ansökningsdag:</strong>{" "}
             {job.application_deadline
               ? new Date(job.application_deadline).toLocaleDateString("sv-SE", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
               : ""}
           </AdDate>
           <JobWebpageUrl

@@ -1,4 +1,4 @@
-import { HeroWrap, HeroImage, HeroShade, GlassQuote, HeroContent, HeroTitle } from "../styled/heroStyle";
+import { HeroWrap, HeroImage, HeroShade, GlassQuote, HeroContent, HeroTitle } from "../styled/home/heroStyle";
 
 type Props = {
   imageSrc: string;
@@ -6,10 +6,10 @@ type Props = {
   title?: string;
   quote?: string;
   author?: string;
-  height?: string; 
+  height?: string;
 };
 
-export default function Hero({
+export default function Hero ({
   imageSrc,
   imageAlt = "Hero image",
   title = "JobbCentralen",

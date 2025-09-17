@@ -1,5 +1,5 @@
 import { DigiNavigationPagination } from "@digi/arbetsformedlingen-react";
-import { PaginationContainer, TotalJobsText } from "./styled/JobsPage/ShowJobsComponents";
+import { PaginationContainer, TotalJobsText } from "../styled/jobs/ShowJobsComponents";
 
 type PaginatorProps = {
   totalPages: number;
@@ -16,7 +16,7 @@ export const Paginator = ({
   jobsPerPage,
   adTotal
 }: PaginatorProps) => {
-   const shownJobs = Math.min(currentPage * jobsPerPage, adTotal);
+  const shownJobs = Math.min(currentPage * jobsPerPage, adTotal);
   // Handle page change event from DigiNavigationPagination
   const handlePageChange = (event: CustomEvent<number>) => {
     const page = event.detail;
@@ -31,7 +31,7 @@ export const Paginator = ({
         afInitActivePage={currentPage}
         onAfOnPageChange={handlePageChange}
         afLimit={5}
-        
+
       />
     </PaginationContainer>
   );

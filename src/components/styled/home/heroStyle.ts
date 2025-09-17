@@ -7,7 +7,6 @@ export const HeroWrap = styled.section<{ $height?: string }>`
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-radius: 16px;
 `;
 
 export const HeroImage = styled.img`
