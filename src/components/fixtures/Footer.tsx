@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { FooterOuter, FooterInner, Brand, FooterNav, Muted } from "../styled/footerStyle";
+import { FooterLogo } from './PageLogo';
 
 type Props = {
   bg?: string;
@@ -7,13 +8,13 @@ type Props = {
   padding?: string;
 };
 
-export function Footer({ bg, border, padding }: Props) {
+export function Footer ({ bg, border, padding }: Props) {
   const year = new Date().getFullYear();
 
   return (
     <FooterOuter $bg={bg} $border={border} $p={padding}>
       <FooterInner>
-        <Brand>JobbCentralen</Brand>
+        <FooterLogo />
 
         <FooterNav>
           <Link to="/about">Om oss</Link>
