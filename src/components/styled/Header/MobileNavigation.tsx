@@ -13,7 +13,7 @@ export const MobileNav = styled.div`
 
 export const MobileNavSidebarWrap = styled.div`
   & .digi-navigation-sidebar__header {
-    height: 100px;
+    height: 76px;
   }
 
   & a{

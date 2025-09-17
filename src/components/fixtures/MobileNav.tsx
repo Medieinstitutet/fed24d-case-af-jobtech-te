@@ -85,7 +85,7 @@ export const MobileNavigation = () => {
                     afCloseButtonText="Close"
                     afCloseButtonAriaLabel="Close menu"
                     afCloseButtonPosition={NavigationSidebarCloseButtonPosition.END}
-                    afHeading="Brandname"
+                    afHeading="JOBBCENTRALEN"
                     onAfOnClose={closeMenu}
                     onAfOnEsc={closeMenu}
                     onAfOnBackdropClick={closeMenu}
