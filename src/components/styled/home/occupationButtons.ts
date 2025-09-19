@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const ButtonsGrid = styled.nav`
-  width: min(100% - 2rem, 600px);
+  width: min(100% - 2rem, 900px);
   margin-inline: auto;
 
   display: grid;

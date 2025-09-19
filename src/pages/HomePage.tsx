@@ -1,19 +1,17 @@
-
-
-
-import { HiddenPageTitle, PageSection } from '../components/styled/global/Pages'
-import Hero from "../components/home/Hero"
+// src/pages/HomePage.tsx (eller var din HomePage ligger)
+import { HiddenPageTitle, PageSection } from '../components/styled/global/Pages';
+import Hero from "../components/home/Hero";
 import heroImg from "../assets/hero-job.jpg";
-import TopOccupations from '../components/home/TopOccupationsBar'
 import { TeamAvatar } from '../components/home/TeamAvatar';
 import { BaseBlockWrap } from '../components/styled/global/Wrappers';
 import { OffersCta } from '../components/home/offersCta';
+import OccupationPanel from '../components/home/OccupationPanel';
 
 export const HomePage = () => {
-
   return (
-    <PageSection $padding='0 0 3rem 0'>
-      <HiddenPageTitle> Jobcentralen</HiddenPageTitle>
+    <PageSection $padding="0 0 3rem 0">
+      <HiddenPageTitle>Jobbcentralen</HiddenPageTitle>
+
       <Hero
         imageSrc={heroImg}
         imageAlt="Laptop och kaffekopp"
@@ -21,14 +19,17 @@ export const HomePage = () => {
         author="JobbCentralen"
         height="380px"
       />
-      <BaseBlockWrap $p='1rem 0 2rem 0' $maxW='1050px'>
+
+      <BaseBlockWrap $p="1rem 0 2rem 0" $maxW="1050px">
         <OffersCta />
       </BaseBlockWrap>
-      <TopOccupations />
-      <BaseBlockWrap $p='3rem 0 2rem 0' $maxW='1050px'>
+
+      <BaseBlockWrap $maxW='800px'>
+        <OccupationPanel />
+      </BaseBlockWrap>
+      <BaseBlockWrap $p="3rem 0 2rem 0" $maxW="1050px">
         <TeamAvatar />
       </BaseBlockWrap>
     </PageSection>
-  )
-}
-
+  );
+};
