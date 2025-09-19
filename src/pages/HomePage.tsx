@@ -7,6 +7,7 @@ import heroImg from "../assets/hero-job.jpg";
 import TopOccupations from '../components/home/TopOccupationsBar'
 import { TeamAvatar } from '../components/home/TeamAvatar';
 import { BaseBlockWrap } from '../components/styled/global/Wrappers';
+import { OffersCta } from '../components/home/offersCta';
 
 export const HomePage = () => {
 
@@ -20,8 +21,11 @@ export const HomePage = () => {
         author="JobbCentralen"
         height="380px"
       />
+      <BaseBlockWrap $p='1rem 0 2rem 0' $maxW='1050px'>
+        <OffersCta />
+      </BaseBlockWrap>
       <TopOccupations />
-      <BaseBlockWrap $gap='2rem' $maxW='1050px'>
+      <BaseBlockWrap $p='3rem 0 2rem 0' $maxW='1050px'>
         <TeamAvatar />
       </BaseBlockWrap>
     </PageSection>
