@@ -8,11 +8,11 @@ type Props = {
   padding?: string;
 };
 
-export function Footer ({ bg, border, padding }: Props) {
+export function Footer ({ bg, padding }: Props) {
   const year = new Date().getFullYear();
 
   return (
-    <FooterOuter $bg={bg} $border={border} $p={padding}>
+    <FooterOuter $bg={bg} $p={padding}>
       <FooterInner>
         <FooterLogo />
 

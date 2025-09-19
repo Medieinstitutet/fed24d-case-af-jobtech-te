@@ -3,22 +3,15 @@ import styled from "styled-components";
 export const Card = styled.section`
   width: 100%;
   max-width: 400px;
-  background: #fff;               /* byt mot tema-färg */
+  background:var(--digi--color--background--neutral-5);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 `;
 
-export const Title = styled.h3`
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-align: center;
-`;
 
 export const List = styled.ol`
   margin: 0;
@@ -32,4 +25,10 @@ export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   font-size: 0.95rem;
+`;
+export const Title = styled.h3`
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
 `;

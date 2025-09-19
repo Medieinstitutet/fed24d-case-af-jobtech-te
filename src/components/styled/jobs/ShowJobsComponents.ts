@@ -25,7 +25,7 @@ export const JobItem = styled.li`
     gap: 0.5rem;
 
     list-style: none;
-    background-color: #ececec;
+     background-color: var(--clr-secondary-lighter);
 
 `
 
@@ -56,4 +56,3 @@ export const TotalJobsText = styled.p`
     font-size: 1.2rem;
     margin-bottom:5px;
 `
-

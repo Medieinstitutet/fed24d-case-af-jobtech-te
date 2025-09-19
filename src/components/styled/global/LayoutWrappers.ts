@@ -23,8 +23,8 @@ export const HeaderWrapper = styled.header`
     display:flex;
     align-items:center;
     justify-content:center;
-    border-bottom:var(--border-header);
-    background-color:var(--clr--bg-header);
+    border-bottom: var(--digi--border-width--secondary) solid var(--border-header);
+    background-color:var(--bg-header);
 `;
 
 export const MainWrap = styled.main`
@@ -36,7 +36,7 @@ export const MainWrap = styled.main`
     align-items: center;
     justify-content:start;
     gap: 1rem;
-    background-color:var(--clr--page-bg);
+    background-color:var(--page-bg); 
 `
 
 export const FooterWrap = styled.footer`
@@ -46,7 +46,20 @@ export const FooterWrap = styled.footer`
     align-items:center;
     justify-content:center;
     padding: 0.5rem 1rem;
-    border-top:var(--border-footer);
-    background-color:var(--clr--bg-footer);
+    border-top:var(--digi--border-width--complementary-1) solid var(--border-footer);
+    background-color:var(--bg-footer); 
     color: var(--digi--color--text--inverted);
+
+    & a{
+        color:var( --digi--color--text--link);
+
+    &:hover
+    {
+        color: var( --digi--color--text--link-hover);
+    }
+    
+    &:visited {
+        color: var( --digi--color--text--link-visited);
+    }
+    }
     `

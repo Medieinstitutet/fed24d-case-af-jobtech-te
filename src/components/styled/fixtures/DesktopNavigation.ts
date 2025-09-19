@@ -32,23 +32,23 @@ export const DesktopNavLink = styled(NavLink)`
   min-width: 48px;
   padding:0 1rem;
   text-decoration: none;
-  color: var(--digi--grayscale-900);
+  color: var( --text-secondary);
   font-size: var(--digi--navigation-vertical-menu-item--font-size);
 
   &:active{
     text-decoration: none;
-   color: var(--digi--grayscale-900);
+   color: var( --text-secondary);
   }
 
   &:hover {
-   color: var(--digi--grayscale-900);
-    background-color: var(--digi--print--color--background--profile-green--base-10);
-            color: var(--digi--grayscale-900);
+   color: var(  --text-primary);
+    background-color: var(--digi--color--background--neutral-5);
+            color: var(  --text-primary);
              text-decoration: none;
   }
 
   &:visited{
-       color: var(--digi--grayscale-900);
+       color: var(  --text-primary);
         text-decoration: none;
   }
 
@@ -56,7 +56,7 @@ export const DesktopNavLink = styled(NavLink)`
   &[aria-current="page"] {
     border-bottom:var(--digi--navigation-vertical-menu-item--active-indicator-width) solid var(--digi--color--border--tertiary);
     font-weight: var(--digi--typography--vertical-menu-level-1--font-weight--desktop);
-    color: var(--digi--grayscale-900);
+    color: var(  --text-primary);
     text-decoration: none;
     align-items: end;
     padding:0 1rem 0.45rem 1rem;
@@ -71,23 +71,23 @@ export const DesktopLink = styled(Link)`
   min-width: 48px;
   padding: 0 1rem;
   text-decoration: none;
-  color: var(--digi--grayscale-900);
+  color: var(  --text-primary);
 
 
   &:active{
     text-decoration: none;
-   color: var(--digi--grayscale-900);
+   color: var(  --text-primary);
   }
 
   &:hover {
-   color: var(--digi--grayscale-900);
+   color: var(  --text-primary);
     background-color: var(--digi--print--color--background--profile-green--base-10);
 
                     text-decoration: none;
   }
 
   &:visited{
-       color: var(--digi--grayscale-900);
+       color: var(  --text-primary);
         text-decoration: none;
   }
 
@@ -96,7 +96,7 @@ export const DesktopLink = styled(Link)`
       border-bottom:var(--digi--navigation-vertical-menu-item--active-indicator-width) solid var(--digi--color--border--tertiary);
       background-color: var(--digi--print--color--background--profile-green--base-10);
       font-weight: var(--digi--typography--vertical-menu-level-1--font-weight--desktop);
-        color: var(--digi--grayscale-900);
+        color: var(  --text-primary);
         text-decoration: none;
   } 
 

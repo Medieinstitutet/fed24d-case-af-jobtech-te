@@ -1,42 +1,164 @@
+/* DIGI imports */
 @import '@digi/arbetsformedlingen/dist/digi-arbetsformedlingen/digi-arbetsformedlingen.css';
 @import '@digi/arbetsformedlingen/dist/digi-arbetsformedlingen/fonts/src/fonts.css';
 
+:root {
+  /* Brand – Purple */
+  --brand-purple-50:  hsl(300,20%,97.06%);
+  --brand-purple-100: hsl(300,15.38%,94.90%);
+  --brand-purple-200: hsl(300,17%,90%);
+  --brand-purple-300: hsl(300,17%,86%);
+  --brand-purple-400: hsl(300,17%,72%);
+  --brand-purple-500: hsl(300,17%,60%);
+  --brand-purple-600: hsl(300,17.03%,44.90%);
+  --brand-purple-700: hsl(300,16.94%,35.88%);
+  --brand-purple-800: hsl(300,17%,24%);
+  --brand-purple-900: hsl(300,17%,14%);
 
-:root{
+  /* Brand – Blue (secondary) */
+  --brand-blue-50:  hsl(206,17%,93%);
+  --brand-blue-100: hsl(206,17%,84%);
+  --brand-blue-300: hsl(206,17%,60%);
+  --brand-blue-600: hsl(207,16.86%,50%);
+  --brand-blue-700: hsl(206,17%,35%);
 
---clr--bg-header: #f7f3f7;
---clr--bg-footer:#2e1f2e;
---clr--page-bg:hsl(300, 20%, 97%);
---clr--border-header: #efe8ef;
---clr--border-footer:#f2edf2;
+  /* Neutral (slight purple bias) */
+  --neutral-0:    hsl(300,6%,99%);
+  --neutral-50:   hsl(0,0%,98.04%);
+  --neutral-100:  hsl(300,6%,96%);
+  --neutral-200:  hsl(300,6%,93%);
+  --neutral-300:  hsl(300,6%,89%);
+  --neutral-400:  hsl(300,6%,87%);
+  --neutral-500:  hsl(300,6%,79%);
+  --neutral-600:  hsl(300,6%,67%);
+  --neutral-700:  hsl(300,6%,46%);
+  --neutral-800:  hsl(300,6.01%,35.88%);
+  --neutral-900:  hsl(300,5.88%,20%);
+  --neutral-1000: hsl(300,6%,15%);
 
---clr--bg-coml-1-100:hsl(171, 35%, 81%);
+  /* Accent – Warm (CTA) */
+  --accent-warm-50:  hsl(38,40%,97%);
+  --accent-warm-100: hsl(40,29%,90%);
+  --accent-warm-200: hsl(34,26%,80%);
+  --accent-warm-300: hsl(30,22%,62%);
+  --accent-warm-400: hsl(28,20%,45%);
+  --accent-warm-500: hsl(24,55%,46%);
 
---border-header:var(--digi--border-width--secondary) solid var(--clr--border-header);
---border-footer:var(--digi--border-width--complementary-1) solid var(--clr--border-footer);
---clr--bg-white:hsl(300, 20%, 98%);
---clr-txt-dark:hsl(300, 19%, 20%);
---clr-txt-medium: hsl(300, 28%, 32%);
---clr-text-heading:hsl(206, 28%, 35% );
---clr-txt-light: #efe8ef;
---clr--link:hsl(171, 93%, 27%);
---clr--link-hover:hwb(170 1% 67%);
---clr--ink-active:hsl(170, 93%, 17%);
---digi--margin--h3-small:1.2rem;
-
---digi--color--text--primary:var(--clr-txt-dark);
---digi--color--text--secondary:var(--clr-txt-medium);
---digi--color--text--inverted:var(--clr-txt-light);
---digi--color--text--link:var(--clr--link);
---digi--color--background--input: var(--clr--bg-white);
-
---digi--color--background--complementary-1:var(--clr--bg-coml-1-100);
+  /* Accent – Mint (links/focus) */
+  --accent-mint-50:  hsl(160,24%,92%);
+  --accent-mint-100: hsl(170,32%,86%);
+  --accent-mint-200: hsl(170,28%,62%);
+  --accent-mint-300: hsl(170,24%,47%);
+  --accent-mint-400: hsl(170,24%,38%);
+  --accent-mint-500: hsl(169,24%,32%);
+  --accent-mint-600: hsl(169,24%,28.47%);
+  --accent-mint-700: hsl(167,24%,23%);
 }
 
+:root {
+  /* Text */
+  --text-primary:       var(--brand-purple-800);
+  --text-secondary:     var(--brand-purple-700);
+  --text-inverted:      var(--brand-purple-50);
+  --text-hero:          var(--accent-warm-100);
+  --text-heading:       var(--brand-blue-600);
+  --text-logo:          var(--brand-blue-300);
+  --text-link:          var(--accent-mint-600);
+  --text-link-hover:    var(--accent-mint-300);
+  --text-link-visited:  var(--accent-mint-400);
 
-h1,h2,h3,h4,h5,h6{
-    color:var(--clr-text-heading);
+  /* Surfaces */
+  --bg-page:            var(--brand-purple-50);
+  --bg-header:          var(--brand-purple-100);
+  --bg-footer:          var(--brand-purple-900);
+  --bg-surface:         var(--brand-purple-50);
+  --bg-avatar:          var(--brand-purple-50);
+
+  /* Button primary bg & hover */
+  --bg-inverted-1:      var(--brand-purple-700);
+  --bg-inverted-6:      var(--brand-purple-600);
+  --bg-inverted-3:      var(--accent-warm-50);
+
+  /* DIGI background hooks */
+  --digi--color--background--primary:    var(--brand-purple-50);
+  --digi--color--background--inverted-5: var(--brand-purple-200);
+
+  /* DIGI border hooks */
+  --digi--color--border--secondary:  var(--brand-purple-800);
+  --digi--color--border--inverted-2: var(--brand-purple-700);
+
+  /* Extra background aliases (as in your file) */
+  --bg-input:           var(--brand-neutral-500);
+  --bg-neutral-5:       var(--brand-blue-50);
+  --bg-neutral-7:       var(--brand-blue-100);
+
+  --bg-inverted-2:      var(--accent-warm-300);
+  --bg-inverted-4:      var(--accent-warm-400);
+  --bg-inverted-5:      var(--brand-purple-200);
+
+  --bg-complement-1:    var(--accent-mint-50);
+  --bg-complement-2:    var(--accent-warm-200);
+
+  /* Borders & focus */
+  --border-default:     var(--neutral-200);
+  --border-header:      var(--brand-purple-200);
+  --border-footer:      var(--brand-purple-800);
+  --border-secondary:   var(--brand-purple-500);
+  --border-tertiary:    var(--brand-blue-600);
+  --border-quaternary:  var(--brand-blue-600);
+  --border-inverted-2:  var(--brand-purple-300);
+  --border-inverted-3:  var(--brand-purple-300);
+  --focus-ring:         var(--brand-blue-600);
 }
 
+:root {
+  /* Text */
+  --digi--color--text--primary:        var(--text-primary);
+  --digi--color--text--secondary:      var(--text-secondary);
+  --digi--color--text--inverted:       var(--text-inverted);
+  --digi--color--text--link:           var(--text-link);
+  --digi--color--text--link-hover:     var(--text-link-hover);
+  --digi--color--text--link-visited:   var(--text-link-visited);
 
+  /* Backgrounds */
+  --digi--color--background--inverted-1: var(--bg-inverted-1);
+  --digi--color--background--inverted-6: var(--bg-inverted-6);
 
+  --digi--color--background--neutral-5:  var(--brand-blue-50);
+  --digi--color--background--input:      var(--bg-input);
+  --digi--color--background--neutral-5:  var(--bg-neutral-5);
+  --digi--color--background--neutral-7:  var(--bg-neutral-7);
+  --digi--color--background--inverted-1: var(--bg-inverted-1);
+  --digi--color--background--inverted-3: var(--bg-inverted-3);
+  --digi--color--background--inverted-4: var(--bg-inverted-4);
+  --digi--color--background--inverted-5: var(--bg-inverted-5);
+  --digi--color--background--inverted-6: var(--bg-inverted-6);
+  --digi--color--background--complementary-1: var(--bg-complement-1);
+  --digi--color--background--complementary-2: var(--bg-complement-2);
+
+  /* Borders/focus/icons */
+  --digi--color--border--neutral-1:  var(--border-default);
+  --digi--color--border--secondary:  var(--border-secondary);
+  --digi--color--border--tertiary:   var(--border-tertiary);
+  --digi--color--border--quaternary: var(--border-quaternary);
+  --digi--color--border--inverted-2: var(--border-inverted-2);
+  --digi--color--border--inverted-3: var(--border-inverted-3);
+  --digi--color--border--focus:      var(--focus-ring);
+
+  --digi--color--icons--secondary:             var(--brand-purple-500);
+  --digi--color--background--radio-secondary:  var(--brand-purple-500);
+  --digi--color--background--checkbox-secondary: var(--brand-purple-500);
+
+  /* Other aliases used in layout */
+  --clr-text-heading: var(--text-heading);
+  --clr-text-logo:    var(--text-logo);
+  --clr--page-bg:     var(--bg-page);
+  --clr--bg-header:   var(--bg-header);
+  --clr--bg-footer:   var(--bg-footer);
+  --clr--border-header: var(--border-header);
+  --clr--border-footer: var(--border-footer);
+
+  --digi--margin--h3-small: 1.2rem;
+
+  --digi-layout-columns--min-width:max-content;
+}

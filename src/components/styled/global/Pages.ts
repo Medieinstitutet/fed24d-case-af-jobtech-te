@@ -5,6 +5,14 @@ type PageSectionProps = {
     $gap?: string;
     $padding?: string;
 };
+type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+type PageTitleProps = {
+    $color?: string;
+    $padding?: string;
+    $align?: string;
+    as?: HeadingTag;
+};
 
 export const PageSection = styled.section<PageSectionProps>`
     width: 100%;
@@ -32,6 +40,10 @@ export const HiddenPageTitle = styled.h2`
     white-space: nowrap;
 `;
 
-export const PageTitle = styled.h2`
-    align-self: center;
+export const PageTitle = styled.h2<PageTitleProps>`
+  width: 100%;
+  align-self: center;
+  text-align: ${({ $align = 'center' }) => $align};
+  padding: ${({ $padding = '0' }) => $padding};
+  color: ${({ $color = 'var(--text-heading)' }) => $color};
 `;
