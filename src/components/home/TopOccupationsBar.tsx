@@ -3,7 +3,7 @@ import type { Job } from '../../models/Job';
 import type { IJobAd } from '../../models/IJobAd';
 import { fetchJobs } from '../../services/jobService';
 import { Card, List, ListItem, Title } from '../styled/home/TopOccupationsStyle';
-
+import { useJobs } from '../../contexts/JobContext';
 
 type AnyJob = Job | IJobAd;
 
@@ -27,7 +27,7 @@ function groupTopOccupations (jobs: AnyJob[]) {
   return [...map.entries()]
     .map(([name, count]) => ({ name, count }))
     .sort((a, b) => b.count - a.count)
-    .slice(0, 5);
+    .slice(0, 6);
 }
 
 type Props = {
@@ -50,8 +50,8 @@ export default function TopOccupationsBar ({
   const [ownJobs, setOwnJobs] = useState<AnyJob[]>([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const { dispatch } = useJobs();
 
-  // Hämta själv bara om jobs-prop saknas
   useEffect(() => {
     if (jobs && jobs.length) return;
 
@@ -60,7 +60,6 @@ export default function TopOccupationsBar ({
         setLoading(true);
         setErr(null);
 
-
         const res1 = await fetchJobs(query, offset, limit);
         if (res1?.jobs?.length) {
           console.log("[TopOcc] fetchJobs OK:", res1.jobs.length);
@@ -68,7 +67,6 @@ export default function TopOccupationsBar ({
           return;
         }
 
-        // enkel fallback: använder a om tom query gav noll
         if (!query) {
           const res2 = await fetchJobs("a", 0, limit);
           if (res2?.jobs?.length) {
@@ -95,6 +93,13 @@ export default function TopOccupationsBar ({
     return groupTopOccupations(source || []);
   }, [data, source]);
 
+  // Spara topp-etiketter till context
+  useEffect(() => {
+    if (items.length) {
+      dispatch({ type: "SET_TOP_LABELS", labels: items.map(i => i.name) });
+    }
+  }, [items, dispatch]);
+
   if (err) return <section><h3>{title}</h3><p role="alert">{err}</p></section>;
   if (loading) return <section><h3>{title}</h3><p>Laddar…</p></section>;
   if (!items.length) return <section><h3>{title}</h3><p>Inga data att visa ännu.</p></section>;
@@ -112,7 +117,7 @@ export default function TopOccupationsBar ({
           {items.map((row) => (
             <ListItem key={row.name}>
               <span>{row.name}</span>
-              <strong>{row.count}</strong>
+              {/* <strong>{row.count}</strong>  ← borttagen */}
             </ListItem>
           ))}
         </List>
