@@ -38,6 +38,28 @@ export const BaseBlockCard = styled.div<BaseWrapProps>`
   flex-direction: column;
   gap: ${({ $gap = 'var(--space-4, 1rem)' }) => $gap};
   align-items: center;
+  justify-content:space-between;
   text-align: center;
   border: 1px solid var(--border-default, #ececec);
+`;
+
+
+type ColumnsProps = {
+  $max?: string;    // container max-width, e.g. "1200px" / "90rem"
+  $padX?: string;   // horizontal padding, e.g. "16px"
+  $colMin?: string; // min column width, e.g. "300px"
+  $gap?: string;    // grid gap, e.g. "2rem"
+};
+
+export const Columns = styled.div<ColumnsProps>`
+  --container-max: ${({ $max = '1200px' }) => $max};
+  --container-pad-x: ${({ $padX = '16px' }) => $padX};
+  --col-min: ${({ $colMin = '300px' }) => $colMin};
+
+  width: min(calc(100% - 2 * var(--container-pad-x)), var(--container-max));
+  margin-inline: auto;
+
+  display: grid;
+  gap: ${({ $gap = '2rem' }) => $gap};
+  grid-template-columns: repeat(auto-fit, minmax(var(--col-min), 1fr));
 `;

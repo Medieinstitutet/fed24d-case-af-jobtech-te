@@ -1,6 +1,6 @@
 import { PageTitle } from '../styled/global/Pages';
-import { BaseBlockCard } from "../styled/global/Wrappers";
-import { AvatarCircle, Columns, InitialsClip, AvatarTitle, DigiLink, Role, LinkWrap } from "../styled/home/avatarStyle";
+import { BaseBlockCard, Columns } from "../styled/global/Wrappers";
+import { AvatarCircle, InitialsClip, AvatarTitle, DigiLink, Role, LinkWrap } from "../styled/home/avatarStyle";
 
 export type Person = {
     initials: string;
@@ -25,7 +25,7 @@ export const TeamAvatar = ({ people = defaultPeople }: TeamAvatarProps) => {
         <>
             <PageTitle as='h3' $align='left' $padding='0 2rem' >Vi som jobbar här</PageTitle>
 
-            <Columns>
+            <Columns $max='800px' $colMin='200px'>
                 {people.map((p) => (
                     <BaseBlockCard
                         as="article"
