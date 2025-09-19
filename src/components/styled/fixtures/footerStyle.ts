@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 type FooterOuterProps = {
-  $bg?: string;       
-  $border?: string;   
-  $p?: string;       
+  $bg?: string;
+  $p?: string;
 };
 
 export const FooterOuter = styled.footer<FooterOuterProps>`
   width: 100%;
-  background: ${({ $bg }) => $bg ?? "var(--digi--color--background--surface)"};
-  border-top: 1px solid ${({ $border }) => $border ?? "var(--digi--color--border--neutral-3)"};
+  background: ${({ $bg }) => $bg ?? "var(--footer-bg)"};
   padding: ${({ $p }) => $p ?? "1rem 2rem"};
   color: var(--digi--color--text--default);
 `;
@@ -52,7 +50,7 @@ export const FooterNav = styled.nav`
   }
   a:hover {
     text-decoration: underline;
-    color: var(--digi--color--text--link-hover, var(--digi--stratos-500));
+    color: var(--digi--color--text--link-hover);
   }
 `;
 

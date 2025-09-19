@@ -62,14 +62,14 @@ export const SearchInput = styled.div`
 export const SuggestionsWrapper = styled.div`
   width: 100%;
   max-width: 470px;
-  margin-top: -1rem;
+  margin-top: -1.6rem;
   padding-top: 1rem;
   z-index: 1;
   border: var(--digi--form-input--border--neutral) solid
     var(--digi--color--border--neutral-3);
   border-top: 0;
   border-radius: 0 0 1rem 1rem;
-  background: var(--digi--color--background--input);
+  background: var( --digi--color--background--input);
   overflow: hidden;
   clip-path: inset(0 round 0 0 1rem 1rem);
 
@@ -85,8 +85,8 @@ export const SuggestionsContainer = styled.ul`
   max-height: calc(48px * 3);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: var(--digi--grayscale-500) transparent;
+ scrollbar-width: thin; 
+   scrollbar-color: var(--digi--grayscale-500) transparent; 
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -95,7 +95,6 @@ export const SuggestionsContainer = styled.ul`
     border-radius: 8px;
     border: 2px solid transparent;
     background-clip: padding-box;
-    background-color: var(--digi--grayscale-500);
   }
 `;
 
@@ -107,7 +106,7 @@ export const SuggestionItem = styled.li`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--digi--grayscale-300);
-    color: var(--digi--stratos-500);
+    background-color: var(--digi--grayscale-700); 
+    color: var(--digi--color--text--inverted);
   }
 `;

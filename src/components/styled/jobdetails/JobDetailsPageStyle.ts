@@ -11,34 +11,33 @@ export const JobDetailsContainer = styled.div`
 `;
 
 export const JobDetailsHeader = styled.div`
-  width: 1200px;
+width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: row;
-
-  background-color: hsl(171, 35%, 81%);
+margin-top: 3rem;
+   background-color: var(--digi--color--background--neutral-5); 
   height: auto;
-  margin-top: 15px;
   @media (max-width: 480px) {
     display: flex;
     flex-direction: column;
     width: auto;
-    margin: 10px;
-    gap: 20px;
+    gap: 1.5rem;  
+    margin-top: 0;
+     max-width: 100%;
   }
   /* Normal Phones (481px to 768px) */
   @media (min-width: 481px) and (max-width: 768px) {
-    width: auto;
-    margin: 15px;
+ max-width: 100%;
+        margin-top: 0;
+
   }
-  /* Tablets and Small Laptops (769px to 1024px) */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    width: 900px;
+  /* Tablets and Small Laptops (769px to 1200px) */
+  @media (min-width: 769px) and (max-width: 1200px) {
+        margin-top: 0;
+    max-width: 100%;
   }
-  /* Tablets and Small Laptops (769px to 1024px) */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      width: auto;
-      margin: 15px;
-    }
+
   
 `;
 
@@ -47,12 +46,12 @@ export const JobDetailsHeaderContainers = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
+  padding: 2rem 1rem;
   border-left: 4.5px solid
-    hsl(168.8888888888889, 14.754098360655732%, 64.11764705882352%);
-  padding-bottom: 10px;
+  var( --border-tertiary);
+  padding-bottom: 0.75rem;
   padding-left: 20px;
-  justify-content: end;
-  margin-top: 10px;
+  justify-content: end; 
   p {
     font-size: 1.2rem;
     margin-bottom: 0;
@@ -73,7 +72,7 @@ export const JobDetailsHeaderContainers = styled.div`
   @media (max-width: 480px) {
     border-left: none;
     border-bottom: 4.5px solid
-      hsl(168.8888888888889, 14.754098360655732%, 64.11764705882352%);
+    var(--clr-secondary);
     width: 100%;
 
     padding-left: 10px;
