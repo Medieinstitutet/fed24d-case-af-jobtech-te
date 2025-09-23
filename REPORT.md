@@ -44,20 +44,11 @@ Er slutprodukt ska ej innehålla Arbetsförmedlingens logga eller färger. Anpas
 - C:\Work\AssignmentCorrector\backend\repos\fed24d-case-af-jobtech-te\src\services\jobService.ts - no-console - Unexpected console statement.,no-console - Unexpected console statement.,no-console - Unexpected console statement.
 - C:\Work\AssignmentCorrector\backend\repos\fed24d-case-af-jobtech-te\src\services\serviceBase.ts - no-console - Unexpected console statement.
 
-## 🏆 **Betyg: G**
-📌 **Motivering:** Uppgiften uppfyller G-kraven: data hämtas strukturerat via fetch i en separat tjänstelager (fetchData/jobService), /search används för listning, /ad/:id för detaljer och /complete för autocomplete. React-koncept används korrekt (routing med RouterProvider, loader-funktioner, state/useReducer, context via JobContext). Ett designsystem (Digi) används konsekvent och Styled Components används för presentation och tematisering utan AF-logotyp/färger.
+## 🏆 **Betyg: IG**
+📌 **Motivering:** Kunde inte tolka uppgiften korrekt. Kontrollera manuellt.
 
 💡 **Förbättringsförslag:**  
-- Korrigera importerna från react-router-dom istället för react-router (createBrowserRouter, RouterProvider, Link, NavLink, useNavigate, useLoaderData, useRouteLoaderData). Fel paket ger annars körfel i webben.
-- Säkerställ att filnamn och importvägar stämmer: jobService importerar './serviceBase' men filen heter 'baseService.ts', och flera ställen importerar '../models/ApiResponse' medan filen i exemplet heter 'jobApiResponse.ts'.
-- Om ni vill använda useRouteLoaderData("jobs") i PageLayout, ge '/jobs'-routen ett id: 'jobs' eller hämta loader-data via context på barnsidan i stället.
-- Autocomplete: lägg till debounce (t.ex. 250–400 ms), avbryt pågående requests med AbortController och stöd för tangentbordsnavigering/ARIA (role=listbox/option, aria-activedescendant, aria-expanded, aria-controls).
-- Tillgänglighet: harmonisera språk (svenska överallt – menyn visar “Home/Jobs”), förbättra aria-labels i mobila menyn och lägg till aria-live/ledtexter vid förslagslistan.
-- Säkerhet: vid användning av dangerouslySetInnerHTML för annonsbeskrivning – överväg att sanera HTML med t.ex. DOMPurify även om källan är betrodd.
-- Grafisk presentation: för bonuskriteriet, visualisera TopOccupationsBar som ett faktiskt diagram (staplar/linje) med t.ex. Recharts/Chart.js och visa antal (count) igen.
-- UX: lägg till tomt-tillstånd/feedback när inga träffar hittas i jobb-listan och visa laddningsindikatorer där det behövs.
-- Kodstädning: ta bort kvarlämnade debug-stilar (t.ex. röd border på länkar i mobilsidomenyn) och console.log i produktion.
-- Mindre: uppdatera <title> från “Vite + React + TS” till projektets namn, och överväg en custom hook (t.ex. useJobSearch/useTypeahead) för att ytterligare strukturera logik.
+Automatisk rättning misslyckades. Vänligen kontrollera koden manuellt.
 
 ## 👥 Gruppbidrag
 
